@@ -10,9 +10,6 @@ import UIKit
 
 class DashboardTableViewController: UITableViewController {
     
-    // MARK: - Outlets
-   
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
