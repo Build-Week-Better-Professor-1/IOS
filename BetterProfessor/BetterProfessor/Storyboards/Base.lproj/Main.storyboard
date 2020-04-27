@@ -178,9 +178,22 @@
                         <viewLayoutGuide key="safeArea" id="0l2-tV-DcT"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Student Information" id="5Bw-Cs-eLO">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hf0-Xc-4yb"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zid-GP-i8w"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hf0-Xc-4yb">
+                            <connections>
+                                <action selector="cancel:" destination="9aw-gK-Wa7" id="4i7-IO-iWd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zid-GP-i8w">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="9aw-gK-Wa7" id="3zr-EK-Brz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reminderTextField" destination="LX6-CJ-cWD" id="c34-0U-XCm"/>
+                        <outlet property="studentEmailTextField" destination="BcX-8v-1Aw" id="jZl-hJ-Fkk"/>
+                        <outlet property="studentTextField" destination="Ryh-dN-CDh" id="BqR-JI-zeN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ei-al-cNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
