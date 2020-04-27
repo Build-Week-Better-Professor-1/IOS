@@ -71,10 +71,35 @@
                     <view key="view" contentMode="scaleToFill" id="LnH-cj-xeW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-tU-z2c">
+                                <rect key="frame" x="20" y="148" width="374" height="83"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ryh-dN-CDh">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcX-8v-1Aw">
+                                        <rect key="frame" x="0.0" y="49" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0zd-tU-z2c" firstAttribute="top" secondItem="0l2-tV-DcT" secondAttribute="top" constant="60" id="Emb-m8-kMK"/>
+                            <constraint firstItem="0zd-tU-z2c" firstAttribute="leading" secondItem="0l2-tV-DcT" secondAttribute="leading" constant="20" id="Mol-Sh-F45"/>
+                            <constraint firstItem="0l2-tV-DcT" firstAttribute="trailing" secondItem="0zd-tU-z2c" secondAttribute="trailing" constant="20" id="eGE-vb-RX4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0l2-tV-DcT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Student Information" id="5Bw-Cs-eLO"/>
+                    <navigationItem key="navigationItem" title="New Student Information" id="5Bw-Cs-eLO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hf0-Xc-4yb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zid-GP-i8w"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ei-al-cNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
