@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,39 +7,87 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
-        <scene sceneID="pLH-PM-U30">
+        <!--Better Professor-->
+        <scene sceneID="uxy-UY-i94">
             <objects>
-                <viewController id="6Pz-9S-6k8" customClass="DashboardViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="usa-qW-zzW">
+                <tableViewController id="Rlv-Dn-vdj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="38z-TM-xC6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="pKG-of-d7g"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3Wf-C6-xWF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VHU-Wc-qEj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentCell" id="MwV-jz-iG1">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwV-jz-iG1" id="WwT-JF-iiK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rlv-Dn-vdj" id="jMC-Ro-eRY"/>
+                            <outlet property="delegate" destination="Rlv-Dn-vdj" id="kxr-ot-gdI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Better Professor" id="Ayo-hS-RPT"/>
+                    <connections>
+                        <segue destination="K6j-ap-e2U" kind="presentation" identifier="LoginModalSegue" modalPresentationStyle="fullScreen" id="a6O-ha-MXb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sw2-W4-FEw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368.1159420289855" y="198.88392857142856"/>
+            <point key="canvasLocation" x="1684" y="246"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="xS5-qd-Kbi">
+            <objects>
+                <viewController id="L1Y-F7-0Nk" customClass="LoginViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BWd-cQ-W39">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fYh-XX-owr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SSL-3w-LGW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7MY-dd-FGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3538" y="-441"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="3CJ-ar-YqX">
+        <scene sceneID="NJF-hY-E6x">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dGA-It-Zhz" sceneMemberID="viewController">
+                <navigationController id="LmE-sk-o8u" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="p33-F6-NwT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rlv-Dn-vdj" kind="relationship" relationship="rootViewController" id="SLH-dU-nzF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvc-MN-IQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="246"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c9a-4U-N32">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K6j-ap-e2U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uw7-1e-dKB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qqc-kF-GcG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="6Pz-9S-6k8" kind="relationship" relationship="rootViewController" id="wr7-ty-4eZ"/>
+                        <segue destination="L1Y-F7-0Nk" kind="relationship" relationship="rootViewController" id="TVk-h1-tIE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7yj-L3-eZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ogy-KH-UJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457.97101449275368" y="198.88392857142856"/>
+            <point key="canvasLocation" x="2657" y="-441"/>
         </scene>
     </scenes>
 </document>

@@ -1,5 +1,5 @@
 //
-//  DashboardViewController.swift
+//  LoginViewController.swift
 //  BetterProfessor
 //
 //  Created by Chris Dobek on 4/27/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
