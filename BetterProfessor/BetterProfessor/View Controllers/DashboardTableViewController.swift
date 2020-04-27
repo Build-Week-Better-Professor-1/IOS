@@ -9,7 +9,15 @@
 import UIKit
 
 class DashboardTableViewController: UITableViewController {
-
+    
+    // MARK: - Outlets
+    @IBOutlet weak var studentNameLabel: UILabel!
+    @IBOutlet weak var studentEmailLabel: UILabel!
+    @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +27,11 @@ class DashboardTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    // MARK: - Actions
+    @IBAction func addStudentTapped(_ sender: UIBarButtonItem) {
+    }
+    
 
     // MARK: - Table view data source
 

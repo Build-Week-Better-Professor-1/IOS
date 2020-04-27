@@ -10,7 +10,7 @@
         <!--Better Professor-->
         <scene sceneID="uxy-UY-i94">
             <objects>
-                <tableViewController id="Rlv-Dn-vdj" sceneMemberID="viewController">
+                <tableViewController id="Rlv-Dn-vdj" customClass="DashboardTableViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="38z-TM-xC6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,11 +85,16 @@
                     <navigationItem key="navigationItem" title="Better Professor" id="Ayo-hS-RPT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IF7-NV-PhS">
                             <connections>
+                                <action selector="addStudentTapped:" destination="Rlv-Dn-vdj" id="DMB-0V-lnr"/>
                                 <segue destination="PSY-sw-JQN" kind="presentation" identifier="ModalAddStudentSegue" modalPresentationStyle="fullScreen" id="55B-6v-QFi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="Gfl-Hj-BYV" id="vuG-oC-zhc"/>
+                        <outlet property="reminderLabel" destination="oJs-xI-4Ng" id="a5X-Mt-PZ2"/>
+                        <outlet property="studentEmailLabel" destination="yDD-l4-Bil" id="dJO-PL-tqA"/>
+                        <outlet property="studentNameLabel" destination="1UB-cB-WjO" id="s1U-IW-y0u"/>
                         <segue destination="K6j-ap-e2U" kind="presentation" identifier="LoginModalSegue" modalPresentationStyle="fullScreen" id="a6O-ha-MXb"/>
                     </connections>
                 </tableViewController>
