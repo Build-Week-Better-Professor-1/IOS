@@ -11,11 +11,7 @@ import UIKit
 class DashboardTableViewController: UITableViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var studentNameLabel: UILabel!
-    @IBOutlet weak var studentEmailLabel: UILabel!
-    @IBOutlet weak var reminderLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
+   
     
     
     override func viewDidLoad() {

@@ -9,6 +9,12 @@
 import UIKit
 
 class StudentInfoTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var studentNameLabel: UILabel!
+    @IBOutlet weak var studentEmailLabel: UILabel!
+    @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
