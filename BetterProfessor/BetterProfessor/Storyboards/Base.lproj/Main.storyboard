@@ -201,6 +201,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textDidChange:" destination="L1Y-F7-0Nk" eventType="editingDidEnd" id="Opq-DP-ob0"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKl-aU-QYz">
                                         <rect key="frame" x="0.0" y="50" width="374" height="34"/>
@@ -212,6 +215,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG1-bY-bJI">
                                 <rect key="frame" x="40" y="248" width="334" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="L1Y-F7-0Nk" eventType="touchUpInside" id="VIa-2x-kdI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -235,8 +241,17 @@
                                 <segment title="Login"/>
                                 <segment title="Sign Up"/>
                             </segments>
+                            <connections>
+                                <action selector="loginTypeChanged:" destination="L1Y-F7-0Nk" eventType="valueChanged" id="0oF-WO-i1n"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loginTypeSegmentedControl" destination="bWG-f5-zmD" id="ku8-dO-Esy"/>
+                        <outlet property="passwordTextField" destination="jKl-aU-QYz" id="plY-1V-lzg"/>
+                        <outlet property="submitButton" destination="FG1-bY-bJI" id="eFv-RC-tBX"/>
+                        <outlet property="usernameTextField" destination="36Y-pW-85X" id="u9r-Wv-AjE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7MY-dd-FGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

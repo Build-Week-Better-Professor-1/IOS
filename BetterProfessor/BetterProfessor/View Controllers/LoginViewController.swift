@@ -8,13 +8,38 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+enum LoginType: String {
+    case login = "Login"
+    case signUp = "Sign Up"
+}
 
+class LoginViewController: UIViewController {
+    
+    
+    // MARK: - Outlets
+    @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: - Actions
+    @IBAction func loginTypeChanged(_ sender: Any) {
+    }
+    
+    @IBAction func textDidChange(_ sender: Any) {
+    }
+    
+    @IBAction func submitButtonTapped(_ sender: Any) {
+    }
+    
+    
+    
     
 
     /*
