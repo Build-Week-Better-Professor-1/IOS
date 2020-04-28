@@ -9,41 +9,49 @@
 import Foundation
 import CoreData
 
-extension User {
+extension BetterProfessor {
     
-    var userRepresentation : UserRepresentation {
+    var betterProfessorRepresentation: BetterProfessorRepresentation? {
+        
+        guard let id = identifier,
+            let username = username,
+            let password = password,
+            let studentName = studentName,
+            let studentEmail = studentEmail,
+            let taskDueDate = taskDueDate,
+            let taskNote = taskNote,
+            let taskTitle = taskTitle else {
+                return nil
+        }
+        
+        return BetterProfessorRepresentation(identifier: id,
+                                             username: username,
+                                             password: password,
+                                             studentEmail: studentEmail,
+                                             studentName: studentName,
+                                             taskDueDate: taskDueDate,
+                                             taskNote: taskNote,
+                                             taskTitle: taskTitle)
         
     }
+    
     @discardableResult convenience init(username: String,
-        password: String,
-        identifier: UUID = UUID(),
-        context: NSManagedObjectContext = CoreDataStack.shared.mainContext
-    ) {
+                                        password: String,
+                                        studentName: String,
+                                        studentEmail: String,
+                                        taskDueDate: Date = Date(),
+                                        taskNote: String,
+                                        taskTitle: String,
+                                        identifier: UUID = UUID(),
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
-        self.identifier = identifier
         self.username = username
         self.password = password
-    }
-}
-
-struct Bearer: Codable {
-    let token: String
-}
-
-extension Student {
-    @discardableResult convenience init(name: String,
-        email: String,
-        taskDueDate: Date?,
-        taskTitle: String,
-        taskNote: String?,
-        context: NSManagedObjectContext = CoreDataStack.shared.mainContext
-    ) {
-    
-        self.init(context: context)
-        self.name = name
-        self.email = email
+        self.studentName = studentName
+        self.studentEmail = studentEmail
+        self.taskDueDate = taskDueDate
         self.taskNote = taskNote
         self.taskTitle = taskTitle
-        self.taskTitle = taskTitle
+        self.identifier = identifier
     }
 }
