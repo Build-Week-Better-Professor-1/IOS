@@ -17,8 +17,50 @@ class BetterProfessorController {
     init(){
         fetchStudent()
     }
-    func createStudent() {
+    func createStudent(name: String, email: String, taskNotes: String,taskTitle: String, taskDueDate: Date) {
+        let student = Student(name: name, email: email, taskNotes: taskNotes, taskTitle: taskTitle, taskDueDate: taskDueDate)
+        put(student: student)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Saving new student failed")
+        }
+    }
+    func updateStudent(student: Student, name: String, email: String, taskNotes: String,taskTitle: String, taskDueDate: Date) {
+        student.name = name
+        student.email = email
+        student.taskDueDate = taskDueDate
+        student.taskTitle = taskTitle
+        student.taskNotes = taskNotes
+        put(student: student)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Saving edited student failed")
+        }
+    }
+    
+    private func put(student: Student, completion: @escaping ((Error?) -> Void) = { _ in }){
+        let id = student.id ?? UUID().uuidString
+        let requestURL = baseUrl.appendingPathComponent(id).appendingPathExtension("json")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
         
+        do {
+            request.httpBody = try JSONEncoder().encode(student.studentRepresentation)
+        } catch {
+            NSLog("Error encoding in put method: \(error)")
+            completion(error)
+            return
+        }
+        URLSession.shared.dataTask(with: request) { data,_,error in
+            if let error = error {
+                NSLog("Error PUTting student to server: \(error)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
     }
     func fetchStudent(completion: @escaping ((Error?) -> Void) = { _ in }) {
         let requestURL = studentURL.appendingPathExtension("json")

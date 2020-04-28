@@ -62,7 +62,7 @@ extension Student {
                                      taskTitle: taskTitle)
     }
     
-    @discardableResult convenience init(id: String,
+    @discardableResult convenience init(id: String = UUID().uuidString,
                                         name: String,
                                         email: String,
                                         taskNotes: String,
