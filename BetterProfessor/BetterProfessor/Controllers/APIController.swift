@@ -27,4 +27,8 @@ class APIController {
     
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
     
+    //with user: BetterProfessor
+    func signIn(completion: @escaping (Error?) -> ()) {
+//        let signInURL = 
+    }
 }

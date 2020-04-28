@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+
 extension BetterProfessor {
     
     var betterProfessorRepresentation: BetterProfessorRepresentation? {
@@ -35,6 +36,7 @@ extension BetterProfessor {
         
     }
     
+
     @discardableResult convenience init(username: String,
                                         password: String,
                                         studentName: String,

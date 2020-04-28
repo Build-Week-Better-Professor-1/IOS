@@ -18,3 +18,4 @@ struct BetterProfessorRepresentation: Equatable, Codable {
     var taskNote: String
     var taskTitle: String
 }
+
