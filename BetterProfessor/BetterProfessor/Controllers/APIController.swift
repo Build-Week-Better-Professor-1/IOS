@@ -29,7 +29,7 @@ class APIController {
     var bearer: Bearer?
     
     // create function for sign in
-    func signIn(with user: BetterProfessor,completion: @escaping (Error?) -> ()) {
+    func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
         let signInURL = baseUrl.appendingPathComponent("auth/login")
         
         var request = URLRequest(url: signInURL)
@@ -38,7 +38,7 @@ class APIController {
         
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(user.betterProfessorRepresentation)
+            let jsonData = try jsonEncoder.encode(user.professorRepresentation)
             request.httpBody = jsonData
         } catch {
             NSLog("Encode error in sign in")
@@ -74,7 +74,7 @@ class APIController {
         }.resume()
     }
     
-    func signUp(with user: BetterProfessor, completion: @escaping (Error?) -> ()) {
+    func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {
         let signUpURL = baseUrl.appendingPathComponent("auth/register")
         
         var request = URLRequest(url: signUpURL)
@@ -83,7 +83,7 @@ class APIController {
         
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(user.betterProfessorRepresentation)
+            let jsonData = try jsonEncoder.encode(user.professorRepresentation)
             request.httpBody = jsonData
         } catch {
             NSLog("Encode error in sign up")

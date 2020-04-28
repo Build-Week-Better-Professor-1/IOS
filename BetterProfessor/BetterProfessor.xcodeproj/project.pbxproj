@@ -24,6 +24,7 @@
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
 		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
 		AEC8629D2458A03400775FD8 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629C2458A03400775FD8 /* Bearer.swift */; };
+		AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		AEC8629C2458A03400775FD8 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +80,12 @@
 		27308BDA2457487700CEE5B2 /* BetterProfessor */ = {
 			isa = PBXGroup;
 			children = (
+				27308BE92457488100CEE5B2 /* Info.plist */,
 				27308BF324574B1800CEE5B2 /* CoreData */,
 				27308BF424574B2600CEE5B2 /* Controllers */,
 				27308BF124574AF100CEE5B2 /* View Controllers */,
 				27308BF224574B0900CEE5B2 /* Views */,
 				27308BF024574ACC00CEE5B2 /* Storyboards */,
-				27308BE92457488100CEE5B2 /* Info.plist */,
 				27308BEF24574AB400CEE5B2 /* Application */,
 			);
 			path = BetterProfessor;
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC8629424587B6600775FD8 /* APIController.swift */,
+				AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */,
 				27308BF824574ED500CEE5B2 /* DashboardTableViewController.swift in Sources */,
 				AEC8629D2458A03400775FD8 /* Bearer.swift in Sources */,
+				AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */,
 				AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */,
 				27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */,
 				27308C00245764C300CEE5B2 /* StudentInfoTableViewCell.swift in Sources */,
@@ -377,7 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JR3MZ76R8L;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BetterProfessor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -396,7 +400,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JR3MZ76R8L;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BetterProfessor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
