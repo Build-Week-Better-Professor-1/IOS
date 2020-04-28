@@ -21,4 +21,5 @@ struct StudentRepresentation: Codable {
     var taskDueDate: Date
     var taskNotes: String
     var taskTitle: String
+    var professor: String
 }
