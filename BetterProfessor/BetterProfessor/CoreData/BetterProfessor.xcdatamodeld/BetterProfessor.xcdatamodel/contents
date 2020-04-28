@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F62f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="BetterProfessor" representedClassName="BetterProfessor" syncable="YES" codeGenerationType="class">
+    <entity name="Professor" representedClassName="Professor" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="password" attributeType="String"/>
-        <attribute name="studentEmail" attributeType="String"/>
-        <attribute name="studentName" attributeType="String"/>
-        <attribute name="taskDueDate" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="taskNote" optional="YES" attributeType="String"/>
-        <attribute name="taskTitle" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
     </entity>
+    <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
+        <attribute name="email" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="taskDueDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="taskNotes" optional="YES" attributeType="String"/>
+        <attribute name="taskTitle" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="BetterProfessor" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Professor" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Student" positionX="-36" positionY="36" width="128" height="133"/>
     </elements>
 </model>

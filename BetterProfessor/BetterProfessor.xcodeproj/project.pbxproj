@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		271C78532458882900C8C21E /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 271C78512458882900C8C21E /* BetterProfessor.xcdatamodeld */; };
+		271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 271C785A2458B20700C8C21E /* BetterProfessor.xcdatamodeld */; };
+		271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */; };
+		271C78602458B32100C8C21E /* BetterProfessorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */; };
 		27308BDC2457487700CEE5B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BDB2457487700CEE5B2 /* AppDelegate.swift */; };
 		27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BDD2457487700CEE5B2 /* SceneDelegate.swift */; };
 		27308BE32457487700CEE5B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27308BE12457487700CEE5B2 /* Main.storyboard */; };
@@ -19,16 +21,16 @@
 		27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */; };
 		27308C00245764C300CEE5B2 /* StudentInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFF245764C300CEE5B2 /* StudentInfoTableViewCell.swift */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
-		AEC86293245877D800775FD8 /* BetterProf.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC86292245877D800775FD8 /* BetterProf.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
-		AEC8629724587FE500775FD8 /* BetterProfessorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629624587FE500775FD8 /* BetterProfessorRepresentation.swift */; };
 		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
 		AEC8629D2458A03400775FD8 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629C2458A03400775FD8 /* Bearer.swift */; };
 		AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		271C78522458882900C8C21E /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
+		271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
+		271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BetterProfessor+Convenience.swift"; sourceTree = "<group>"; };
+		271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorRepresentation.swift; sourceTree = "<group>"; };
 		27308BD82457487700CEE5B2 /* BetterProfessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterProfessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27308BDB2457487700CEE5B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27308BDD2457487700CEE5B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,9 +44,7 @@
 		27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentInfoViewController.swift; sourceTree = "<group>"; };
 		27308BFF245764C300CEE5B2 /* StudentInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoTableViewCell.swift; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
-		AEC86292245877D800775FD8 /* BetterProf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProf.swift; sourceTree = "<group>"; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		AEC8629624587FE500775FD8 /* BetterProfessorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorRepresentation.swift; sourceTree = "<group>"; };
 		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		AEC8629C2458A03400775FD8 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorController.swift; sourceTree = "<group>"; };
@@ -133,11 +133,11 @@
 		27308BF324574B1800CEE5B2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				AEC8629624587FE500775FD8 /* BetterProfessorRepresentation.swift */,
 				AEC8622E24578E8300775FD8 /* CoreDataStack.swift */,
-				AEC86292245877D800775FD8 /* BetterProf.swift */,
-				271C78512458882900C8C21E /* BetterProfessor.xcdatamodeld */,
 				AEC8629C2458A03400775FD8 /* Bearer.swift */,
+				271C785A2458B20700C8C21E /* BetterProfessor.xcdatamodeld */,
+				271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */,
+				271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -223,14 +223,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEC8629524587B6600775FD8 /* APIController.swift in Sources */,
-				AEC8629724587FE500775FD8 /* BetterProfessorRepresentation.swift in Sources */,
-				AEC86293245877D800775FD8 /* BetterProf.swift in Sources */,
+				271C78602458B32100C8C21E /* BetterProfessorRepresentation.swift in Sources */,
 				27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */,
 				27308BFA2457504E00CEE5B2 /* LoginViewController.swift in Sources */,
-				271C78532458882900C8C21E /* BetterProfessor.xcdatamodeld in Sources */,
 				27308BDC2457487700CEE5B2 /* AppDelegate.swift in Sources */,
 				AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */,
 				27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */,
+				271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */,
+				271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */,
 				27308BF824574ED500CEE5B2 /* DashboardTableViewController.swift in Sources */,
 				AEC8629D2458A03400775FD8 /* Bearer.swift in Sources */,
 				AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */,
@@ -438,12 +438,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		271C78512458882900C8C21E /* BetterProfessor.xcdatamodeld */ = {
+		271C785A2458B20700C8C21E /* BetterProfessor.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				271C78522458882900C8C21E /* BetterProfessor.xcdatamodel */,
+				271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */,
 			);
-			currentVersion = 271C78522458882900C8C21E /* BetterProfessor.xcdatamodel */;
+			currentVersion = 271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */;
 			path = BetterProfessor.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
