@@ -39,7 +39,34 @@ class BetterProfessorController {
             NSLog("Saving edited student failed")
         }
     }
-    
+    func delete(student: Student) {
+        CoreDataStack.shared.mainContext.delete(student)
+        do {
+            deleteStudentFromServer(student: student)
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Delete student failed")
+        }
+    }
+    func deleteStudentFromServer(student: Student, completion: @escaping ((Error?) -> Void) = { _ in }) {
+        guard let id = student.id else {
+            NSLog("ID is nil when trying to delete student from server")
+            completion(NSError())
+            return
+        }
+        let requestURL = baseUrl.appendingPathComponent(id).appendingPathExtension("json")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "DELETE"
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        if let error = error {
+            NSLog("Error deleting student from server: \(error)")
+            completion(error)
+            return
+        }
+        completion(nil)
+        }.resume()
+    }
     private func put(student: Student, completion: @escaping ((Error?) -> Void) = { _ in }){
         let id = student.id ?? UUID().uuidString
         let requestURL = baseUrl.appendingPathComponent(id).appendingPathExtension("json")
