@@ -9,13 +9,13 @@
 import Foundation
 
 struct ProfessorRepresentation: Codable {
-    var identifier: UUID
+    var id: Int16
     var username: String
     var password: String
 }
 
 struct StudentRepresentation: Codable {
-    var identifier: UUID
+    var id: Int16
     var name: String
     var email: String
     var taskDueDate: Date
