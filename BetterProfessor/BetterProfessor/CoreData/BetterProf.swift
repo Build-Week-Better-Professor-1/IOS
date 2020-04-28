@@ -57,8 +57,7 @@ extension BetterProfessor {
         self.identifier = identifier
     }
     
-    @discardableResult convenience init?(betterProfessorRepresentation: BetterProfessorRepresentation,
-                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(betterProfessorRepresentation: BetterProfessorRepresentation,context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(username: betterProfessorRepresentation.username,
                   password: betterProfessorRepresentation.password,
