@@ -12,4 +12,9 @@ struct UserRepresentation: Codable {
     var identifier: String?
     var username: String
     var password: String
+    var student: [String]
 }
+struct StudentRepresentation: Codable {
+    var name: String
+}
+

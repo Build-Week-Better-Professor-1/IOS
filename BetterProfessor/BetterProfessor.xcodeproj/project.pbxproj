@@ -22,6 +22,7 @@
 		AEC86293245877D800775FD8 /* BetterProf.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC86292245877D800775FD8 /* BetterProf.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
 		AEC8629724587FE500775FD8 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629624587FE500775FD8 /* UserRepresentation.swift */; };
+		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AEC86292245877D800775FD8 /* BetterProf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProf.swift; sourceTree = "<group>"; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AEC8629624587FE500775FD8 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				27308BF724574ED500CEE5B2 /* DashboardTableViewController.swift */,
 				27308BF92457504E00CEE5B2 /* LoginViewController.swift */,
 				27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */,
+				AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */,
 				27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */,
 			);
 			path = "View Controllers";
@@ -222,6 +225,7 @@
 				AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */,
 				27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */,
 				27308BF824574ED500CEE5B2 /* DashboardTableViewController.swift in Sources */,
+				AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */,
 				AEC8622D24578AFD00775FD8 /* BetterProfessor.xcdatamodeld in Sources */,
 				27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */,
 				27308C00245764C300CEE5B2 /* StudentInfoTableViewCell.swift in Sources */,

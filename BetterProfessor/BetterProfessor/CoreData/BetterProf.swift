@@ -9,11 +9,9 @@
 import Foundation
 import CoreData
 
+
 extension User {
-    
-    var userRepresentation : UserRepresentation {
-        
-    }
+
     @discardableResult convenience init(username: String,
         password: String,
         identifier: UUID = UUID(),
