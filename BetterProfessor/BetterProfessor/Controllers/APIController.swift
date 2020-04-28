@@ -28,17 +28,20 @@ class APIController {
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
     var bearer: Bearer?
     
+    
     // create function for sign in
+
     func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
         let signInURL = baseUrl
+
         
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(user.professorRepresentation)
+            let jsonData = try jsonEncoder.encode(loginModel)
             request.httpBody = jsonData
         } catch {
             NSLog("Encode error in sign in")

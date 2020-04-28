@@ -67,9 +67,11 @@ class LoginViewController: UIViewController {
                                 self.loginTypeSegmentedControl.selectedSegmentIndex = 1
                                 self.submitButton.setTitle("Sign Up", for: .normal)
                             }
+
                         }
                     }
                 }
+
             } else {
                 apiController.signIn(with: professor) {error in
                     if let error = error {
@@ -83,4 +85,5 @@ class LoginViewController: UIViewController {
             }
         }
     }
+
 }

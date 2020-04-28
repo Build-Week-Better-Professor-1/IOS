@@ -13,7 +13,8 @@ extension Professor {
     
     var professorRepresentation: ProfessorRepresentation? {
         guard let username = username,
-            let password = password else {
+            let password = password,
+            let id = id else {
                 return nil
         }
         
@@ -21,11 +22,20 @@ extension Professor {
                                        password: password)
     }
     
+<<<<<<< HEAD
+    @discardableResult convenience init(id: String,
+                                        username: String,
+=======
     @discardableResult convenience init(username: String,
+>>>>>>> master
                                         password: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
+<<<<<<< HEAD
+        self.id = UUID()
+=======
+>>>>>>> master
         self.username = username
         self.password = password
     }
@@ -34,7 +44,12 @@ extension Professor {
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
+<<<<<<< HEAD
+        self.init(id: professorRepresentation.id?.uuidString ?? UUID().uuidString,
+                  username: professorRepresentation.username,
+=======
         self.init(username: professorRepresentation.username,
+>>>>>>> master
                   password: professorRepresentation.password,
                   context: context)
     }
