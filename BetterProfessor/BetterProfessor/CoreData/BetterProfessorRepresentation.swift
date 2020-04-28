@@ -1,21 +1,24 @@
 //
-//  UserRepresentation.swift
+//  BetterProfessorRepresentation.swift
 //  BetterProfessor
 //
-//  Created by Lydia Zhang on 4/28/20.
+//  Created by Chris Dobek on 4/28/20.
 //  Copyright © 2020 Chris Dobek. All rights reserved.
 //
 
 import Foundation
 
-struct BetterProfessorRepresentation: Equatable, Codable {
-    var identifier: UUID?
+struct ProfessorRepresentation: Codable {
+    var identifier: UUID
     var username: String
     var password: String
-    var studentEmail: String
-    var studentName: String
-    var taskDueDate: Date
-    var taskNote: String
-    var taskTitle: String
 }
 
+struct StudentRepresentation: Codable {
+    var identifier: UUID
+    var name: String
+    var email: String
+    var taskDueDate: Date
+    var taskNotes: String
+    var taskTitle: String
+}
