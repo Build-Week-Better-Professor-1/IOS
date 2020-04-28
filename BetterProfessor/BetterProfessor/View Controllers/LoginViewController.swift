@@ -15,6 +15,7 @@ enum LoginType: String {
 
 class LoginViewController: UIViewController {
     
+    var betterProfessorController: BetterProfessorController?
     
     // MARK: - Outlets
     @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
@@ -25,103 +26,61 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     var apiController: APIController?
     
-    var loginType: LoginType = .signUp {
-        didSet {
-            switch loginType {
-            case .signIn:
-                submitButton.setTitle("Sign In", for: .normal)
-            default:
-                submitButton.setTitle("Sign Up", for: .normal)
-            }
-        }
-    }
+    var loginType = LoginType.signUp
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        submitButton.backgroundColor = UIColor(hue: 190/360, saturation: 70/100, brightness: 80/100, alpha: 1.0)
+        submitButton.tintColor = .white
+        submitButton.layer.cornerRadius = 8.0
     }
     
     // MARK: - Actions
     @IBAction func loginTypeChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 1:
+        if sender.selectedSegmentIndex == 0 {
             loginType = .signUp
-            passwordTextField.textContentType = .newPassword
-        default:
+            submitButton.setTitle("Sign Up", for: .normal)
+        } else {
             loginType = .signIn
-            passwordTextField.textContentType = .password
+            submitButton.setTitle("Sign In", for: .normal)
         }
-        submitButton.setTitle(loginType.rawValue, for: .normal)
     }
     
-    @IBAction func textDidChange(_ sender: Any) {
-        submitButton.isEnabled = usernameTextField.text?.isEmpty == false &&
-            passwordTextField.text?.isEmpty == false
-    }
-    
+
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-            username.isEmpty == false,
-            let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-            password.isEmpty == false
-            else { return }
-        
-        let professor = Professor(username: username, password: password)
-        
-        switch loginType {
-        case .signIn:
-            apiController?.signIn(with: professor) { loginResult in
-                DispatchQueue.main.async {
-                    let alert: UIAlertController
-                    let action: () -> Void
-                    
-                    switch loginResult {
-                    case .success(_):
-                        action = {
-                            self.dismiss(animated: true)
-                        }
-                    case .failure(_):
-                        alert = self.alert(title: "Error", message: "Error during signing in")
-                        action = {
-                            self.present(alert, animated: true)
+        guard let apiController = apiController else {return}
+        if let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty {
+            let professor = Professor(username: username, password: password)
+            if loginType == .signUp {
+                apiController.signUp(with: professor) {error in
+                    if let error = error {
+                        NSLog("Error occurred during sign up: \(error)")
+                    } else {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Sign Up Done", message: "Please Login", preferredStyle: .alert)
+                            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alertController.addAction(alertAction)
+                            self.present(alertController,animated: true) {
+                                self.loginType = .signIn
+                                self.loginTypeSegmentedControl.selectedSegmentIndex = 1
+                                self.submitButton.setTitle("Sign Up", for: .normal)
+                            }
                         }
                     }
-                    action()
                 }
-            }
-        case .signUp:
-            apiController?.signUp(with: professor) { loginResult in
-                DispatchQueue.main.async {
-                    let alert: UIAlertController
-                    let action: () -> Void
-                    
-                    switch loginResult {
-                    case .success(_):
-                        alert = self.alert(title: "Success", message: "Successfull sign up. Please log in.")
-                        action = {
-                            self.present(alert, animated: true)
-                            self.loginTypeSegmentedControl.selectedSegmentIndex = 0
-                            self.loginTypeSegmentedControl.sendActions(for: .valueChanged)
-                        }
-                    case .failure(_):
-                        alert = self.alert(title: "Error", message: "Error occured during log in.")
-                        action = {
-                            self.present(alert, animated: true)
+            } else {
+                apiController.signIn(with: professor) {error in
+                    if let error = error {
+                        NSLog("Error occured during sign in: \(error)")
+                    } else {
+                        DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
                         }
                     }
-                    
-                    action()
                 }
             }
         }
-    }
-    
-    
-    private func alert(title: String, message: String) -> UIAlertController {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        return alert
     }
 }
