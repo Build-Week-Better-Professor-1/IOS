@@ -12,24 +12,23 @@ import CoreData
 extension Professor {
     
     var professorRepresentation: ProfessorRepresentation? {
-        guard let id = identifier,
-            let username = username,
+        guard let username = username,
             let password = password else {
                 return nil
         }
         
-        return ProfessorRepresentation(identifier: id,
+        return ProfessorRepresentation(id: id,
                                        username: username,
                                        password: password)
     }
     
-    @discardableResult convenience init(identifier: UUID = UUID(),
+    @discardableResult convenience init(id: UUID,
                                         username: String,
                                         password: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
-        self.identifier = identifier
+        self.id = id
         self.username = username
         self.password = password
     }
@@ -38,7 +37,7 @@ extension Professor {
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
-        self.init(identifier: professorRepresentation.identifier,
+        self.init(id: professorRepresentation.id ?? UUID(),
                   username: professorRepresentation.username,
                   password: professorRepresentation.password,
                   context: context)
@@ -48,15 +47,14 @@ extension Professor {
 extension Student {
     
     var studentRepresentation: StudentRepresentation? {
-        guard let id = identifier,
-            let name = name,
+        guard let name = name,
             let email = email,
             let taskNotes = taskNotes,
             let taskTitle = taskTitle,
             let taskDueDate = taskDueDate else {
                 return nil
         }
-        return StudentRepresentation(identifier: id,
+        return StudentRepresentation(id: id,
                                      name: name,
                                      email: email,
                                      taskDueDate: taskDueDate,
@@ -64,7 +62,7 @@ extension Student {
                                      taskTitle: taskTitle)
     }
     
-    @discardableResult convenience init(identifier: UUID = UUID(),
+    @discardableResult convenience init(id: String,
                                         name: String,
                                         email: String,
                                         taskNotes: String,
@@ -77,12 +75,14 @@ extension Student {
         self.taskDueDate = Date()
         self.taskTitle = taskTitle
         self.taskNotes = taskNotes
+        self.id = id
     }
     
     @discardableResult convenience init?(studentRepresentation: StudentRepresentation,
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        self.init(identifier: studentRepresentation.identifier,
+        guard let id = studentRepresentation.id else {return nil}
+        self.init(id: id,
                   name: studentRepresentation.name,
                   email: studentRepresentation.email,
                   taskNotes: studentRepresentation.taskNotes,
