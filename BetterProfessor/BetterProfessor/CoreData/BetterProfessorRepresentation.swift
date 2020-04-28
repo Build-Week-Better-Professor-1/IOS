@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct UserRepresentation: Codable {
-    var identifier: String?
+struct BetterProfessorRepresentation: Equatable, Codable {
+    var identifier: UUID?
     var username: String
     var password: String
-    var student: [String]
+    var studentEmail: String
+    var studentName: String
+    var taskDueDate: Date
+    var taskNote: String
+    var taskTitle: String
 }
 struct StudentRepresentation: Codable {
     var name: String
