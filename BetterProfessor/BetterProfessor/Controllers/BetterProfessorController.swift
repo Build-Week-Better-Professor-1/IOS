@@ -9,8 +9,7 @@
 import Foundation
 import CoreData
 
-let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
-let studentURL = baseUrl.appendingPathComponent("/api/students")
+let baseUrl = URL(string: "https://betterprofessortest.firebaseio.com/")!
 
 class BetterProfessorController {
     
@@ -90,7 +89,7 @@ class BetterProfessorController {
         }.resume()
     }
     func fetchStudent(completion: @escaping ((Error?) -> Void) = { _ in }) {
-        let requestURL = studentURL.appendingPathExtension("json")
+        let requestURL = baseUrl.appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: requestURL) { data, _, error in
             if let error = error {
@@ -160,7 +159,7 @@ class BetterProfessorController {
     }
     
     private func update(student: Student, with rep: StudentRepresentation) {
-        student.id = (rep.id ?? nil)!
+        student.id = rep.id ?? UUID().uuidString
         student.email = rep.email
         student.name = rep.name
         student.taskNotes = rep.taskNotes

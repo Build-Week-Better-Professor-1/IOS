@@ -10,12 +10,20 @@ import UIKit
 
 class DashboardTableViewController: UITableViewController {
     
-    var student: [String] = []
+    //var student: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-    
+    var apiController = APIController()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // transition to login view if conditions require
+        if apiController.bearer == nil {
+            performSegue(withIdentifier: "LoginModalSegue", sender: self)
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -50,8 +58,6 @@ class DashboardTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "LoginModalSegue":
-            print("1")
         case "ShowStudentSegue":
             guard let showStudentVC = segue.destination as? EditStudentInfoViewController else {return}
             print(showStudentVC)

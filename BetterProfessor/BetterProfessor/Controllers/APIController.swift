@@ -30,9 +30,10 @@ class APIController {
     
     
     // create function for sign in
-    func signIn(with user: String, password: String, completion: @escaping (Error?) -> ()) {
-        let signInURL = baseUrl.appendingPathComponent("auth/login")
-        let loginModel = LoginInfo(email: user, password: password)
+
+    func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
+        let signInURL = baseUrl
+
         
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -77,7 +78,7 @@ class APIController {
     }
     
     func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {
-        let signUpURL = baseUrl.appendingPathComponent("auth/register")
+        let signUpURL = baseUrl
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
