@@ -68,21 +68,18 @@ class LoginViewController: UIViewController {
             password.isEmpty == false
             else { return }
         
-        let professor = Professor(username: username, password: password)
-        
         switch loginType {
         case .signIn:
-            apiController?.signIn(with: professor) { loginResult in
+            apiController?.signIn(with: username, password: password) { error in
                 DispatchQueue.main.async {
                     let alert: UIAlertController
                     let action: () -> Void
                     
-                    switch loginResult {
-                    case .success(_):
+                    if error != nil {
                         action = {
                             self.dismiss(animated: true)
                         }
-                    case .failure(_):
+                    } else {
                         alert = self.alert(title: "Error", message: "Error during signing in")
                         action = {
                             self.present(alert, animated: true)
@@ -92,32 +89,9 @@ class LoginViewController: UIViewController {
                 }
             }
         case .signUp:
-            apiController?.signUp(with: professor) { loginResult in
-                DispatchQueue.main.async {
-                    let alert: UIAlertController
-                    let action: () -> Void
-                    
-                    switch loginResult {
-                    case .success(_):
-                        alert = self.alert(title: "Success", message: "Successfull sign up. Please log in.")
-                        action = {
-                            self.present(alert, animated: true)
-                            self.loginTypeSegmentedControl.selectedSegmentIndex = 0
-                            self.loginTypeSegmentedControl.sendActions(for: .valueChanged)
-                        }
-                    case .failure(_):
-                        alert = self.alert(title: "Error", message: "Error occured during log in.")
-                        action = {
-                            self.present(alert, animated: true)
-                        }
-                    }
-                    
-                    action()
-                }
-            }
+            
         }
     }
-    
     
     private func alert(title: String, message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
