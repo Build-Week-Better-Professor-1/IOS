@@ -18,7 +18,4 @@ struct BetterProfessorRepresentation: Equatable, Codable {
     var taskNote: String
     var taskTitle: String
 }
-struct StudentRepresentation: Codable {
-    var name: String
-}
 
