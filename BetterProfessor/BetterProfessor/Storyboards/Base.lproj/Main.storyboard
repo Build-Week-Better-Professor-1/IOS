@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="1682.608695652174" y="245.75892857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Student Info-->
         <scene sceneID="3l7-xC-R4u">
             <objects>
                 <viewController id="0iv-3l-rTy" sceneMemberID="viewController">
@@ -134,15 +134,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5pe-eb-9ze"/>
                     </view>
-                    <navigationItem key="navigationItem" id="typ-eP-Dkr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tOf-3f-63n"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Student Info" id="typ-eP-Dkr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VX0-xZ-2wT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2657" y="246"/>
         </scene>
-        <!--View Controller-->
+        <!--Reminder Details-->
         <scene sceneID="7zO-Yr-5oo">
             <objects>
                 <viewController id="XT0-vz-Doc" sceneMemberID="viewController">
@@ -175,7 +173,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="fTi-Q0-hTS"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -198,13 +196,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wGJ-60-dFW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FWJ-lP-2Yv"/>
+                    <navigationItem key="navigationItem" title="Reminder Details" id="FWJ-lP-2Yv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7uF-Rv-g88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3571" y="256"/>
         </scene>
-        <!--New Student Information-->
+        <!--New Student Info-->
         <scene sceneID="wR5-ky-w4S">
             <objects>
                 <viewController id="9aw-gK-Wa7" customClass="NewStudentViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EEw-f0-9hD">
-                                <rect key="frame" x="20" y="148" width="374" height="84"/>
+                                <rect key="frame" x="20" y="200" width="374" height="84"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ryh-dN-CDh">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -236,7 +234,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0l2-tV-DcT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Student Information" id="5Bw-Cs-eLO">
+                    <navigationItem key="navigationItem" title="New Student Info" id="5Bw-Cs-eLO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hf0-Xc-4yb">
                             <connections>
                                 <action selector="cancel:" destination="9aw-gK-Wa7" id="4i7-IO-iWd"/>
@@ -367,8 +365,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PSY-sw-JQN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kL7-me-HpD">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kL7-me-HpD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
