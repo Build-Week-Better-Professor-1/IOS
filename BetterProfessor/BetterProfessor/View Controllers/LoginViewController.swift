@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var loginType = LoginType.login
-    var apiController = APIController()
+    var apiController = APIController?
     
     private var isFetching: Bool = false {
         didSet {
@@ -71,9 +71,9 @@ class LoginViewController: UIViewController {
             password.isEmpty == false
             else { return }
         
+        let professor = Professor(username: username, password: password)
         
-        
-    }
+        }
     
     
     
