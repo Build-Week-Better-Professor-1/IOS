@@ -10,14 +10,19 @@ import Foundation
 import CoreData
 
 extension User {
+    
+    var userRepresentation : UserRepresentation {
+        
+    }
     @discardableResult convenience init(username: String,
         password: String,
+        identifier: UUID = UUID(),
         context: NSManagedObjectContext = CoreDataStack.shared.mainContext
     ) {
-    
-    self.init(context: context)
-    self.username = username
-    self.password = password
+        self.init(context: context)
+        self.identifier = identifier
+        self.username = username
+        self.password = password
     }
 }
 
@@ -34,11 +39,11 @@ extension Student {
         context: NSManagedObjectContext = CoreDataStack.shared.mainContext
     ) {
     
-    self.init(context: context)
-    self.name = name
-    self.email = email
-    self.taskNote = taskNote
-    self.taskTitle = taskTitle
-    self.taskTitle = taskTitle
+        self.init(context: context)
+        self.name = name
+        self.email = email
+        self.taskNote = taskNote
+        self.taskTitle = taskTitle
+        self.taskTitle = taskTitle
     }
 }

@@ -20,6 +20,8 @@
 		AEC8622D24578AFD00775FD8 /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622B24578AFD00775FD8 /* BetterProfessor.xcdatamodeld */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
 		AEC86293245877D800775FD8 /* BetterProf.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC86292245877D800775FD8 /* BetterProf.swift */; };
+		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
+		AEC8629724587FE500775FD8 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629624587FE500775FD8 /* UserRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		AEC8622C24578AFD00775FD8 /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		AEC86292245877D800775FD8 /* BetterProf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProf.swift; sourceTree = "<group>"; };
+		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		AEC8629624587FE500775FD8 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +74,14 @@
 		27308BDA2457487700CEE5B2 /* BetterProfessor */ = {
 			isa = PBXGroup;
 			children = (
-				27308BEF24574AB400CEE5B2 /* Application */,
+				AEC8629424587B6600775FD8 /* APIController.swift */,
 				27308BF324574B1800CEE5B2 /* CoreData */,
 				27308BF424574B2600CEE5B2 /* Controllers */,
 				27308BF124574AF100CEE5B2 /* View Controllers */,
 				27308BF224574B0900CEE5B2 /* Views */,
 				27308BF024574ACC00CEE5B2 /* Storyboards */,
-				27308BE42457488100CEE5B2 /* Assets.xcassets */,
 				27308BE92457488100CEE5B2 /* Info.plist */,
+				27308BEF24574AB400CEE5B2 /* Application */,
 			);
 			path = BetterProfessor;
 			sourceTree = "<group>";
@@ -85,6 +89,7 @@
 		27308BEF24574AB400CEE5B2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				27308BE42457488100CEE5B2 /* Assets.xcassets */,
 				27308BDB2457487700CEE5B2 /* AppDelegate.swift */,
 				27308BDD2457487700CEE5B2 /* SceneDelegate.swift */,
 			);
@@ -122,6 +127,7 @@
 		27308BF324574B1800CEE5B2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				AEC8629624587FE500775FD8 /* UserRepresentation.swift */,
 				AEC8622E24578E8300775FD8 /* CoreDataStack.swift */,
 				AEC86292245877D800775FD8 /* BetterProf.swift */,
 				AEC8622B24578AFD00775FD8 /* BetterProfessor.xcdatamodeld */,
@@ -207,6 +213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC8629524587B6600775FD8 /* APIController.swift in Sources */,
+				AEC8629724587FE500775FD8 /* UserRepresentation.swift in Sources */,
 				AEC86293245877D800775FD8 /* BetterProf.swift in Sources */,
 				27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */,
 				27308BFA2457504E00CEE5B2 /* LoginViewController.swift in Sources */,
