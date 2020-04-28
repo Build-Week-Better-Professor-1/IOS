@@ -17,18 +17,15 @@ extension Professor {
                 return nil
         }
         
-        return ProfessorRepresentation(id: id,
-                                       username: username,
+        return ProfessorRepresentation(username: username,
                                        password: password)
     }
     
-    @discardableResult convenience init(id: UUID,
-                                        username: String,
+    @discardableResult convenience init(username: String,
                                         password: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
-        self.id = id
         self.username = username
         self.password = password
     }
@@ -37,8 +34,7 @@ extension Professor {
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
-        self.init(id: professorRepresentation.id ?? UUID(),
-                  username: professorRepresentation.username,
+        self.init(username: professorRepresentation.username,
                   password: professorRepresentation.password,
                   context: context)
     }
