@@ -18,7 +18,7 @@ class BetterProfessorController {
         fetchStudent()
     }
     func createStudent(name: String, email: String, taskNotes: String,taskTitle: String, taskDueDate: Date) {
-        let student = Student(name: name, email: email, taskNotes: taskNotes, taskTitle: taskTitle, taskDueDate: taskDueDate)
+        let student = Student(name: name, email: email, taskNotes: taskNotes, taskTitle: taskTitle, taskDueDate: taskDueDate, professor: "1")
         put(student: student)
         do {
             try CoreDataStack.shared.save()
@@ -123,7 +123,8 @@ class BetterProfessorController {
     
     func updateStudents(with representations: [StudentRepresentation]) {
         
-        let studentWithID = representations.filter({$0.id != nil })
+        let studentWithIDs = representations.filter({$0.id != nil })
+        let studentWithID = studentWithIDs.filter({$0.professor == "1"})
         let idToFetch = studentWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, studentWithID))
         var studentsToCreate = repByID

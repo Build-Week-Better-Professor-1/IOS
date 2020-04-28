@@ -9,12 +9,13 @@
         <attribute name="email" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="professor" optional="YES" attributeType="String"/>
         <attribute name="taskDueDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="taskNotes" optional="YES" attributeType="String"/>
         <attribute name="taskTitle" attributeType="String"/>
     </entity>
     <elements>
         <element name="Professor" positionX="-54" positionY="-9" width="128" height="88"/>
-        <element name="Student" positionX="-36" positionY="36" width="128" height="133"/>
+        <element name="Student" positionX="-36" positionY="36" width="128" height="148"/>
     </elements>
 </model>

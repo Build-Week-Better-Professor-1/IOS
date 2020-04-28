@@ -51,6 +51,7 @@ extension Student {
             let email = email,
             let taskNotes = taskNotes,
             let taskTitle = taskTitle,
+            let professor = professor,
             let taskDueDate = taskDueDate else {
                 return nil
         }
@@ -59,7 +60,8 @@ extension Student {
                                      email: email,
                                      taskDueDate: taskDueDate,
                                      taskNotes: taskNotes,
-                                     taskTitle: taskTitle)
+                                     taskTitle: taskTitle,
+                                     professor: professor)
     }
     
     @discardableResult convenience init(id: String = UUID().uuidString,
@@ -68,6 +70,7 @@ extension Student {
                                         taskNotes: String,
                                         taskTitle: String,
                                         taskDueDate: Date,
+                                        professor: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.name = name
@@ -76,6 +79,7 @@ extension Student {
         self.taskTitle = taskTitle
         self.taskNotes = taskNotes
         self.id = id
+        self.professor = professor
     }
     
     @discardableResult convenience init?(studentRepresentation: StudentRepresentation,
@@ -88,6 +92,7 @@ extension Student {
                   taskNotes: studentRepresentation.taskNotes,
                   taskTitle: studentRepresentation.taskTitle,
                   taskDueDate: studentRepresentation.taskDueDate,
+                  professor: studentRepresentation.professor,
                   context: context)
     }
 }
