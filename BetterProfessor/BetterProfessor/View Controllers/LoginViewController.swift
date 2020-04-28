@@ -9,7 +9,7 @@
 import UIKit
 
 enum LoginType: String {
-    case login = "Login"
+    case signIn = "Sign In"
     case signUp = "Sign Up"
 }
 
@@ -21,28 +21,26 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var loginType = LoginType.login
-    var apiController = APIController?
+    // MARK: - Properties
+    var apiController: APIController?
     
-    private var isFetching: Bool = false {
+    var loginType: LoginType = .signUp {
         didSet {
-            if isFetching {
-                activityIndicator.startAnimating()
-                submitButton.isEnabled = false
-            } else {
-                activityIndicator.stopAnimating()
-                submitButton.isEnabled = true
+            switch loginType {
+            case .signIn:
+                submitButton.setTitle("Sign In", for: .normal)
+            default:
+                submitButton.setTitle("Sign Up", for: .normal)
             }
         }
     }
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Actions
@@ -52,7 +50,7 @@ class LoginViewController: UIViewController {
             loginType = .signUp
             passwordTextField.textContentType = .newPassword
         default:
-            loginType = .login
+            loginType = .signIn
             passwordTextField.textContentType = .password
         }
         submitButton.setTitle(loginType.rawValue, for: .normal)
@@ -64,7 +62,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        isFetching = true
         guard let username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
             username.isEmpty == false,
             let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -73,20 +70,58 @@ class LoginViewController: UIViewController {
         
         let professor = Professor(username: username, password: password)
         
+        switch loginType {
+        case .signIn:
+            apiController?.signIn(with: professor) { loginResult in
+                DispatchQueue.main.async {
+                    let alert: UIAlertController
+                    let action: () -> Void
+                    
+                    switch loginResult {
+                    case .success(_):
+                        action = {
+                            self.dismiss(animated: true)
+                        }
+                    case .failure(_):
+                        alert = self.alert(title: "Error", message: "Error during signing in")
+                        action = {
+                            self.present(alert, animated: true)
+                        }
+                    }
+                    action()
+                }
+            }
+        case .signUp:
+            apiController?.signUp(with: professor) { loginResult in
+                DispatchQueue.main.async {
+                    let alert: UIAlertController
+                    let action: () -> Void
+                    
+                    switch loginResult {
+                    case .success(_):
+                        alert = self.alert(title: "Success", message: "Successfull sign up. Please log in.")
+                        action = {
+                            self.present(alert, animated: true)
+                            self.loginTypeSegmentedControl.selectedSegmentIndex = 0
+                            self.loginTypeSegmentedControl.sendActions(for: .valueChanged)
+                        }
+                    case .failure(_):
+                        alert = self.alert(title: "Error", message: "Error occured during log in.")
+                        action = {
+                            self.present(alert, animated: true)
+                        }
+                    }
+                    
+                    action()
+                }
+            }
         }
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
+    
+    private func alert(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        return alert
+    }
 }
