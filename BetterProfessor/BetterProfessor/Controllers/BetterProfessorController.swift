@@ -14,6 +14,12 @@ let studentURL = baseUrl.appendingPathComponent("/api/students")
 
 class BetterProfessorController {
     
+    init(){
+        fetchStudent()
+    }
+    func createStudent() {
+        
+    }
     func fetchStudent(completion: @escaping ((Error?) -> Void) = { _ in }) {
         let requestURL = studentURL.appendingPathExtension("json")
         
@@ -48,8 +54,8 @@ class BetterProfessorController {
     
     func updateStudents(with representations: [StudentRepresentation]) {
         
-        let studentWithID = representations.filter({Int($0.id) != nil})
-        let idToFetch = studentWithID.compactMap({Int($0.id)})
+        let studentWithID = representations.filter({$0.id != nil })
+        let idToFetch = studentWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, studentWithID))
         var studentsToCreate = repByID
         
@@ -63,7 +69,7 @@ class BetterProfessorController {
                 let existStudents = try context.fetch(fetchRequest)
                 
                 for student in existStudents {
-                    let id = Int(student.id)
+                    guard let id = student.id else {continue}
                     guard let representation = repByID[id] else {continue}
                     self.update(student: student, with: representation)
                     studentsToCreate.removeValue(forKey: id)
@@ -84,11 +90,13 @@ class BetterProfessorController {
     }
     
     private func update(student: Student, with rep: StudentRepresentation) {
-        student.id = rep.id
+        student.id = (rep.id ?? nil)!
         student.email = rep.email
         student.name = rep.name
         student.taskNotes = rep.taskNotes
         student.taskTitle = rep.taskTitle
         student.taskDueDate = rep.taskDueDate
     }
+    
+    
 }
