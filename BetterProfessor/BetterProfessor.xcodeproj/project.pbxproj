@@ -76,7 +76,6 @@
 		27308BDA2457487700CEE5B2 /* BetterProfessor */ = {
 			isa = PBXGroup;
 			children = (
-				AEC8629424587B6600775FD8 /* APIController.swift */,
 				27308BF324574B1800CEE5B2 /* CoreData */,
 				27308BF424574B2600CEE5B2 /* Controllers */,
 				27308BF124574AF100CEE5B2 /* View Controllers */,
@@ -141,6 +140,7 @@
 		27308BF424574B2600CEE5B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AEC8629424587B6600775FD8 /* APIController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

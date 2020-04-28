@@ -9,7 +9,10 @@
 import UIKit
 
 class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -30,7 +33,6 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "AddTaskSegue":
