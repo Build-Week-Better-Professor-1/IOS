@@ -56,4 +56,19 @@ extension BetterProfessor {
         self.taskTitle = taskTitle
         self.identifier = identifier
     }
+    
+    @discardableResult convenience init?(betterProfessorRepresentation: BetterProfessorRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        self.init(username: betterProfessorRepresentation.username,
+                  password: betterProfessorRepresentation.password,
+                  studentName: betterProfessorRepresentation.studentName,
+                  studentEmail: betterProfessorRepresentation.studentEmail,
+                  taskDueDate: betterProfessorRepresentation.taskDueDate,
+                  taskNote: betterProfessorRepresentation.taskNote,
+                  taskTitle: betterProfessorRepresentation.taskTitle,
+                  identifier: betterProfessorRepresentation.identifier ?? UUID(),
+                  context: context)
+    }
+    
 }
