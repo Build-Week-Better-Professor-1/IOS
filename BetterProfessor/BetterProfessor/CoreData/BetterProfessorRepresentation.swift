@@ -9,7 +9,6 @@
 import Foundation
 
 struct ProfessorRepresentation: Codable {
-    var id: UUID?
     var username: String
     var password: String
 }
@@ -21,4 +20,5 @@ struct StudentRepresentation: Codable {
     var taskDueDate: Date
     var taskNotes: String
     var taskTitle: String
+    var professor: String
 }
