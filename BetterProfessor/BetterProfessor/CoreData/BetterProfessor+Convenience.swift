@@ -22,6 +22,7 @@ extension Professor {
                                        password: password)
     }
     
+
     @discardableResult convenience init(username: String,
                                         password: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
@@ -35,6 +36,7 @@ extension Professor {
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
+
         self.init(username: professorRepresentation.username,
                   password: professorRepresentation.password,
                   context: context)

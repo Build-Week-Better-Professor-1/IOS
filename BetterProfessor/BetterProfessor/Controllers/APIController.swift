@@ -25,8 +25,7 @@ enum NetworkError: Error {
 
 
 
-class APIController {
-    
+class APIController {    
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
     
     // create function for sign in
@@ -112,5 +111,19 @@ class APIController {
             
             completion(nil)
         }.resume()
+
     }
+    URLSession.shared.dataTask(with: request) { _, response, error in
+      if let error = error {
+        completion(error)
+        return
+      }
+      if let response = response as? HTTPURLResponse{
+        NSLog("Response: \(response)")
+        completion(nil)
+        return
+      }
+      completion(nil)
+    }.resume()
+  }
 }
