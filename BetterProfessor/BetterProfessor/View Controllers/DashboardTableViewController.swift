@@ -24,8 +24,6 @@ class DashboardTableViewController: UITableViewController {
         return frc
     }()
     
-    var betterProfessorController = BetterProfessorController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
