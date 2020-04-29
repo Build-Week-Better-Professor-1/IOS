@@ -26,20 +26,22 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     var apiController: APIController?
     
-    var loginType = LoginType.signUp
+    var loginType : LoginType?
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         submitButton.backgroundColor = UIColor(hue: 190/360, saturation: 70/100, brightness: 80/100, alpha: 1.0)
+        loginType = .signIn
         submitButton.tintColor = .white
         submitButton.layer.cornerRadius = 8.0
+        submitButton.setTitle("Sign In", for: .normal)
     }
     
     // MARK: - Actions
     @IBAction func loginTypeChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
+        if sender.selectedSegmentIndex == 1 {
             loginType = .signUp
             submitButton.setTitle("Sign Up", for: .normal)
         } else {
@@ -64,8 +66,8 @@ class LoginViewController: UIViewController {
                             alertController.addAction(alertAction)
                             self.present(alertController,animated: true) {
                                 self.loginType = .signIn
-                                self.loginTypeSegmentedControl.selectedSegmentIndex = 1
-                                self.submitButton.setTitle("Sign Up", for: .normal)
+                                self.loginTypeSegmentedControl.selectedSegmentIndex = 0
+                                self.submitButton.setTitle("Sign In", for: .normal)
                             }
 
                         }

@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var betterProfessorController: BetterProfessorController?
+    var apiController: APIController?
+    
+    @IBOutlet weak var studentName: UITextField!
+    
+    @IBOutlet weak var studentEmail: UITextField!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,14 +27,20 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-        return cell
+        
+        return UITableViewCell()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-  
+        guard isViewLoaded else {return}
+        betterProfessorController?.fetchStudent()
+        let index = DashboardTableViewController().tableView.indexPathForSelectedRow!.row
+        studentName.text = betterProfessorController?.studentRep[index].name
+        studentEmail.text = betterProfessorController?.studentRep[index].email
+        
     }
     
 
