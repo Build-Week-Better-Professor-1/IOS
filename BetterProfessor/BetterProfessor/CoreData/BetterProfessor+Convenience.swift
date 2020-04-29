@@ -45,21 +45,40 @@ extension Professor {
 extension Task {
     var taskRepresentation: TaskRepresentation? {
         guard let title = title,
-        let note = note,
-            let dueDate = dueDate else {return nil}
+            let note = note,
+            let dueDate = dueDate,
+            let student = student else {return nil}
         
-        return TaskRepresentation(title: title,
-        note: note,
-        dueDate: dueDate)
+        return TaskRepresentation(id: id,
+                                  title: title,
+                                  note: note,
+                                  dueDate: dueDate,
+                                  student: student)
     }
-    @discardableResult convenience init(title: String,
+    @discardableResult convenience init(id: String = UUID().uuidString,
+                                        title: String,
                                         note: String,
                                         dueDate: Date,
+                                        student: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context:context)
+        self.id = id
         self.title = title
         self.note = note
         self.dueDate = dueDate
+        self.student = student
+    }
+    
+    @discardableResult convenience init?(taskRepresentation: TaskRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        guard let id = taskRepresentation.id else {return nil}
+        guard let note = taskRepresentation.note else {return nil}
+        self.init(id: id,
+                  title: taskRepresentation.title,
+                  note: note,
+                  dueDate: taskRepresentation.dueDate,
+                  student: taskRepresentation.student)
     }
 }
 
