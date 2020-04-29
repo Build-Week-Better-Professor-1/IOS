@@ -19,7 +19,6 @@
 		27308BFA2457504E00CEE5B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BF92457504E00CEE5B2 /* LoginViewController.swift */; };
 		27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */; };
 		27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */; };
-		AE4EC80B2459CF1F00CC88AD /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC80A2459CF1F00CC88AD /* Bearer.swift */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
 		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
@@ -41,7 +40,6 @@
 		27308BF92457504E00CEE5B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentViewController.swift; sourceTree = "<group>"; };
 		27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentInfoViewController.swift; sourceTree = "<group>"; };
-		AE4EC80A2459CF1F00CC88AD /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
