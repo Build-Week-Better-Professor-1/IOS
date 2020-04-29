@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271A7F2F2459ED9E00D75E8A /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F2E2459ED9E00D75E8A /* Bearer.swift */; };
+		271A7F312459F25900D75E8A /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F302459F25900D75E8A /* TaskController.swift */; };
 		271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 271C785A2458B20700C8C21E /* BetterProfessor.xcdatamodeld */; };
 		271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */; };
 		271C78602458B32100C8C21E /* BetterProfessorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		271A7F2E2459ED9E00D75E8A /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		271A7F302459F25900D75E8A /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
 		271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BetterProfessor+Convenience.swift"; sourceTree = "<group>"; };
 		271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorRepresentation.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 		27308BDA2457487700CEE5B2 /* BetterProfessor */ = {
 			isa = PBXGroup;
 			children = (
+				271A7F2E2459ED9E00D75E8A /* Bearer.swift */,
 				27308BE92457488100CEE5B2 /* Info.plist */,
 				27308BF324574B1800CEE5B2 /* CoreData */,
 				27308BF424574B2600CEE5B2 /* Controllers */,
@@ -132,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AEC8629424587B6600775FD8 /* APIController.swift */,
-				AE4EC80A2459CF1F00CC88AD /* Bearer.swift */,
 				AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */,
+				271A7F302459F25900D75E8A /* TaskController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,9 +224,10 @@
 				271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */,
 				271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */,
 				27308BF824574ED500CEE5B2 /* DashboardTableViewController.swift in Sources */,
-				AE4EC80B2459CF1F00CC88AD /* Bearer.swift in Sources */,
+				271A7F2F2459ED9E00D75E8A /* Bearer.swift in Sources */,
 				AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */,
 				AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */,
+				271A7F312459F25900D75E8A /* TaskController.swift in Sources */,
 				27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
