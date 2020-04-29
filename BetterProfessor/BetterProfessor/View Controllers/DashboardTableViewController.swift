@@ -14,10 +14,11 @@ class DashboardTableViewController: UITableViewController {
     // MARK: -Properties
     lazy var fetchedResultsController: NSFetchedResultsController<Student> = {
         let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: context,
-                                             sectionNameKeyPath: "StudentCell",
+                                             sectionNameKeyPath: nil,
                                              cacheName: nil)
         frc.delegate = self
         try! frc.performFetch()
@@ -67,12 +68,12 @@ class DashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return betterProfessorController.studentRep.count
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
-        cell.textLabel?.text = betterProfessorController.studentRep[indexPath.row].name
+        cell.textLabel?.text = fetchedResultsController.fetchedObjects?[indexPath.row].name
 
 
         return cell
@@ -83,18 +84,8 @@ class DashboardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let student = fetchedResultsController.object(at: indexPath)
-            CoreDataStack.shared.mainContext.delete(student)
-            betterProfessorController.deleteStudentFromServer(student: student)
-            DispatchQueue.main.async {
-                do {
-                    try CoreDataStack.shared.mainContext.save()
-                } catch {
-                    CoreDataStack.shared.mainContext.reset()
-                    NSLog("Error saving managed object context: \(error)")
-                }
-            }
-
-            betterProfessorController.delete(student: students[indexPath.row])
+            
+            betterProfessorController.delete(student: student)
 
         }
     }

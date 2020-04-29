@@ -49,11 +49,7 @@ extension Task {
             let dueDate = dueDate,
             let student = student else {return nil}
         
-        return TaskRepresentation(id: id,
-                                  title: title,
-                                  note: note,
-                                  dueDate: dueDate,
-                                  student: student)
+        return TaskRepresentation(id: id, title: title, note: note, dueDate: dueDate, student: student)
     }
     @discardableResult convenience init(id: String = UUID().uuidString,
                                         title: String,
@@ -63,9 +59,9 @@ extension Task {
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context:context)
         self.id = id
+        self.dueDate = dueDate
         self.title = title
         self.note = note
-        self.dueDate = dueDate
         self.student = student
     }
     
