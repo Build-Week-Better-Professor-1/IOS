@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     @IBOutlet weak var tableView: UITableView!
     

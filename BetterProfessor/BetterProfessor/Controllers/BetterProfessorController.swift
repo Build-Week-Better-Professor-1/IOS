@@ -14,10 +14,46 @@ let baseUrl = URL(string: "https://betterprofessortest.firebaseio.com/")!
 class BetterProfessorController {
     
     init(){
+        
         fetchStudent()
     }
-    func createStudent(name: String, email: String, taskNotes: String,taskTitle: String, taskDueDate: Date) {
-        let student = Student(name: name, email: email, taskNotes: taskNotes, taskTitle: taskTitle, taskDueDate: taskDueDate, professor: "1")
+    var apiController: APIController?
+    
+//    var taskRep: [TaskRepresentation] = []
+//    func fetchTask(completion: @escaping ((Error?) -> Void) = { _ in }) {
+//        let requestURL = baseUrl.appendingPathExtension("json")
+//
+//            URLSession.shared.dataTask(with: requestURL) { data, _, error in
+//                if let error = error {
+//                    NSLog("Error fetching task from server: \(error)")
+//                    completion(error)
+//                    return
+//                }
+//
+//                guard let data = data else {
+//                    NSLog("No data returned from data task")
+//                    completion(NSError())
+//                    return
+//                }
+//
+//                do {
+//                    self.taskRep = try JSONDecoder().decode([String: TaskRepresentation].self, from: data).map({$0.value})
+//                    //self.updateStudents(with: self.studentRep)
+//                } catch {
+//                    NSLog("Error decoding JSON data when fetching student: \(error)")
+//                    completion(error)
+//                    return
+//                }
+//
+//                completion(nil)
+//
+//            }.resume()
+//    }
+//    func createTask(task: Task) {
+//
+//    }
+    func createStudent(name: String, email: String, professor: String) {
+        let student = Student(name: name, email: email, professor: professor)
         put(student: student)
         do {
             try CoreDataStack.shared.save()
@@ -28,9 +64,6 @@ class BetterProfessorController {
     func updateStudent(student: Student, name: String, email: String, taskNotes: String,taskTitle: String, taskDueDate: Date) {
         student.name = name
         student.email = email
-        student.taskDueDate = taskDueDate
-        student.taskTitle = taskTitle
-        student.taskNotes = taskNotes
         put(student: student)
         do {
             try CoreDataStack.shared.save()
@@ -48,7 +81,7 @@ class BetterProfessorController {
         }
     }
     func deleteStudentFromServer(student: Student, completion: @escaping ((Error?) -> Void) = { _ in }) {
-        guard let id = student.id else {
+        guard let id = student.studentRepresentation?.id else {
             NSLog("ID is nil when trying to delete student from server")
             completion(NSError())
             return
@@ -81,13 +114,15 @@ class BetterProfessorController {
         }
         URLSession.shared.dataTask(with: request) { data,_,error in
             if let error = error {
-                NSLog("Error PUTting student to server: \(error)")
+                NSLog("Error Putting student to server: \(error)")
                 completion(error)
                 return
             }
             completion(nil)
         }.resume()
     }
+    var students: [Student] = []
+    var studentRep: [StudentRepresentation] = []
     func fetchStudent(completion: @escaping ((Error?) -> Void) = { _ in }) {
         let requestURL = baseUrl.appendingPathExtension("json")
         
@@ -104,11 +139,9 @@ class BetterProfessorController {
                 return
             }
             
-            var studentRep: [StudentRepresentation] = []
-            
             do {
-                studentRep = try JSONDecoder().decode([String: StudentRepresentation].self, from: data).map({$0.value})
-                self.updateStudents(with: studentRep)
+                self.studentRep = try JSONDecoder().decode([String: StudentRepresentation].self, from: data).map({$0.value})
+                self.updateStudents(with: self.studentRep)
             } catch {
                 NSLog("Error decoding JSON data when fetching student: \(error)")
                 completion(error)
@@ -122,8 +155,10 @@ class BetterProfessorController {
     
     func updateStudents(with representations: [StudentRepresentation]) {
         
+        guard let apiController = apiController else {return}
         let studentWithIDs = representations.filter({$0.id != nil })
-        let studentWithID = studentWithIDs.filter({$0.professor == "1"})
+        let studentWithID = studentWithIDs.filter({$0.professor == "\(apiController.token!)"})
+        
         let idToFetch = studentWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, studentWithID))
         var studentsToCreate = repByID
@@ -162,9 +197,6 @@ class BetterProfessorController {
         student.id = rep.id ?? UUID().uuidString
         student.email = rep.email
         student.name = rep.name
-        student.taskNotes = rep.taskNotes
-        student.taskTitle = rep.taskTitle
-        student.taskDueDate = rep.taskDueDate
     }
     
     

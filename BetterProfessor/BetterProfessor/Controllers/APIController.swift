@@ -26,19 +26,21 @@ enum NetworkError: Error {
 class APIController {
     
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
-    var bearer: Bearer?
     
     // create function for sign in
+    var token: String?
     func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
-        let signInURL = baseUrl
+        let signInURL = baseUrl.appendingPathComponent("auth/login")
         
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
+        let signInRep = ["email": "\(user.professorRepresentation!.username)",
+        "password": "\(user.professorRepresentation!.password)"]
         do {
-            let jsonData = try jsonEncoder.encode(user.professorRepresentation)
+            let jsonData = try jsonEncoder.encode(signInRep)
             request.httpBody = jsonData
         } catch {
             NSLog("Encode error in sign in")
@@ -51,39 +53,37 @@ class APIController {
                 completion(error)
                 return
             }
-            
+
             if let response = response as? HTTPURLResponse {
                 NSLog("Response: \(response)")
                 completion(nil)
                 return
             }
-            
-            guard let data = data else {
+
+            guard data != nil else {
                 completion(NSError(domain: "Data not found", code: 99, userInfo: nil))
                 return
             }
-            
-            let decoder = JSONDecoder()
-            do {
-                self.bearer = try decoder.decode(Bearer.self, from: data)
-                completion(nil)
-            } catch {
-                NSLog("Error decoding bearer object: \(error)")
-                completion(error)
-            }
         }.resume()
+        self.token = "\(user.professorRepresentation!.username)"
+
     }
     
     func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {
-        let signUpURL = baseUrl
+        let signUpURL = baseUrl.appendingPathComponent("auth/register")
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
+        
+        let signUpRep = ["name": "",
+        "email": "\(user.professorRepresentation!.username)",
+        "password": "\(user.professorRepresentation!.password)"]
+        
         do {
-            let jsonData = try jsonEncoder.encode(user.professorRepresentation)
+            let jsonData = try jsonEncoder.encode(signUpRep)
             request.httpBody = jsonData
         } catch {
             NSLog("Encode error in sign up")

@@ -17,7 +17,8 @@ extension Professor {
                 return nil
         }
         
-        return ProfessorRepresentation(username: username,
+        return ProfessorRepresentation(
+                                       username: username,
                                        password: password)
     }
     
@@ -39,41 +40,50 @@ extension Professor {
                   context: context)
     }
 }
+extension Task {
+    var taskRepresentation: TaskRepresentation? {
+        guard let title = title,
+        let note = note,
+            let dueDate = dueDate else {return nil}
+        
+        return TaskRepresentation(title: title,
+        note: note,
+        dueDate: dueDate)
+    }
+    @discardableResult convenience init(title: String,
+                                        note: String,
+                                        dueDate: Date,
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context:context)
+        self.title = title
+        self.note = note
+        self.dueDate = dueDate
+    }
+}
 
 extension Student {
     
     var studentRepresentation: StudentRepresentation? {
         guard let name = name,
             let email = email,
-            let taskNotes = taskNotes,
-            let taskTitle = taskTitle,
-            let professor = professor,
-            let taskDueDate = taskDueDate else {
+            let professor = professor else {
                 return nil
         }
+
         return StudentRepresentation(id: id,
                                      name: name,
                                      email: email,
-                                     taskDueDate: taskDueDate,
-                                     taskNotes: taskNotes,
-                                     taskTitle: taskTitle,
                                      professor: professor)
     }
     
     @discardableResult convenience init(id: String = UUID().uuidString,
                                         name: String,
                                         email: String,
-                                        taskNotes: String,
-                                        taskTitle: String,
-                                        taskDueDate: Date,
                                         professor: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.name = name
         self.email = email
-        self.taskDueDate = Date()
-        self.taskTitle = taskTitle
-        self.taskNotes = taskNotes
         self.id = id
         self.professor = professor
     }
@@ -85,10 +95,8 @@ extension Student {
         self.init(id: id,
                   name: studentRepresentation.name,
                   email: studentRepresentation.email,
-                  taskNotes: studentRepresentation.taskNotes,
-                  taskTitle: studentRepresentation.taskTitle,
-                  taskDueDate: studentRepresentation.taskDueDate,
                   professor: studentRepresentation.professor,
                   context: context)
     }
 }
+
