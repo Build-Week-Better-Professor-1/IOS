@@ -26,8 +26,8 @@ class DashboardTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         // transition to login view if conditions require
-        let token = apiController.token
-        if token == nil {
+        let bearer = apiController.bearer
+        if bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
         } else {
             betterProfessorController.fetchStudent() {result in
@@ -81,9 +81,11 @@ class DashboardTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ShowStudentSegue":
-            guard let showStudentVC = segue.destination as? EditStudentInfoViewController else {return}
+            guard let showStudentVC = segue.destination as? EditStudentInfoViewController,
+                let index = tableView.indexPathForSelectedRow else {return}
             showStudentVC.betterProfessorController = betterProfessorController
-            showStudentVC.apiController = apiController
+            showStudentVC.student = betterProfessorController.studentRep[index.row]
+            
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}
             addStudentVC.betterProfessorController = betterProfessorController

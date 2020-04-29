@@ -12,7 +12,8 @@ import CoreData
 class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var betterProfessorController: BetterProfessorController?
-    var apiController: APIController?
+    var student: StudentRepresentation?
+
     
     @IBOutlet weak var studentName: UITextField!
     
@@ -37,10 +38,8 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
         tableView.delegate = self
         guard isViewLoaded else {return}
         betterProfessorController?.fetchStudent()
-        let index = DashboardTableViewController().tableView.indexPathForSelectedRow!.row
-        studentName.text = betterProfessorController?.studentRep[index].name
-        studentEmail.text = betterProfessorController?.studentRep[index].email
-        
+        studentEmail.text = student?.email
+        studentName.text = student?.name
     }
     
 

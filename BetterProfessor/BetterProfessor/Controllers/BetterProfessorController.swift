@@ -157,7 +157,7 @@ class BetterProfessorController {
         
         guard let apiController = apiController else {return}
         let studentWithIDs = representations.filter({$0.id != nil })
-        let studentWithID = studentWithIDs.filter({$0.professor == "\(apiController.token!)"})
+        let studentWithID = studentWithIDs.filter({$0.professor == "\(apiController.bearer!.token)"})
         
         let idToFetch = studentWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, studentWithID))
