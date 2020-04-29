@@ -38,6 +38,7 @@ class BestProfessorControllerTest: XCTestCase {
         XCTAssertEqual(betterProfessorController.studentRep.count, 2)
     }
     
+    
     func testDeleteStudent() {
         let betterProfessorController = BetterProfessorController()
         betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "Lydia")
@@ -49,11 +50,15 @@ class BestProfessorControllerTest: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(betterProfessorController.studentRep.count, 2)
+        XCTAssertEqual(betterProfessorController.studentRep.count, 1)
         
         let dashBoard = DashboardTableViewController()
-        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
-        let expectation2 = self.expectation(description: "Waiting to Delete Students")
-        betterProfessorController.delete(student: student!) 
+        let student = dashBoard.fetchedResultsController.fetchedObjects?[0]
+        //let expectation2 = self.expectation(description: "Waiting to Delete Students")
+        betterProfessorController.delete(student: student!)
+        
+        betterProfessorController.fetchStudent()
+        sleep(5)
+        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 0)
     }
 }
