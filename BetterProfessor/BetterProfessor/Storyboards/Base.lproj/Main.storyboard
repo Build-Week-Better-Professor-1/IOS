@@ -128,8 +128,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="studentEmail" destination="wVi-A4-s68" id="4d0-il-SA5"/>
-                        <outlet property="studentName" destination="um8-NJ-6Cy" id="Smc-3M-det"/>
+                        <outlet property="studentEmail" destination="wVi-A4-s68" id="BKj-bp-umc"/>
+                        <outlet property="studentName" destination="um8-NJ-6Cy" id="PEd-1v-b6A"/>
                         <outlet property="tableView" destination="qqC-r6-YTP" id="R0e-F4-uVV"/>
                     </connections>
                 </viewController>

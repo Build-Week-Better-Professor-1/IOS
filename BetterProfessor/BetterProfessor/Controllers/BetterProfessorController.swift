@@ -81,7 +81,7 @@ class BetterProfessorController {
         }
     }
     func deleteStudentFromServer(student: Student, completion: @escaping ((Error?) -> Void) = { _ in }) {
-        guard let id = student.studentRepresentation?.id else {
+        guard let id = student.id else {
             NSLog("ID is nil when trying to delete student from server")
             completion(NSError())
             return

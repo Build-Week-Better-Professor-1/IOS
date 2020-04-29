@@ -23,6 +23,8 @@ enum NetworkError: Error {
     case noDecode
 }
 
+
+
 class APIController {
     
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
@@ -60,9 +62,14 @@ class APIController {
                 return
             }
 
-            guard data != nil else {
+            guard let data = data else {
                 completion(NSError(domain: "Data not found", code: 99, userInfo: nil))
                 return
+            }
+            do {
+                let result = try JSONDecoder().decode([String: Bearer].self, from: data)
+            } catch {
+                NSLog("1")
             }
         }.resume()
         self.token = "\(user.professorRepresentation!.username)"

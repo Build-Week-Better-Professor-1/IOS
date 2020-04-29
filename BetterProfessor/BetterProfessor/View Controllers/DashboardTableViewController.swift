@@ -62,9 +62,6 @@ class DashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
         cell.textLabel?.text = betterProfessorController.studentRep[indexPath.row].name
 
@@ -85,7 +82,8 @@ class DashboardTableViewController: UITableViewController {
         switch segue.identifier {
         case "ShowStudentSegue":
             guard let showStudentVC = segue.destination as? EditStudentInfoViewController else {return}
-            print(showStudentVC)
+            showStudentVC.betterProfessorController = betterProfessorController
+            showStudentVC.apiController = apiController
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}
             addStudentVC.betterProfessorController = betterProfessorController
