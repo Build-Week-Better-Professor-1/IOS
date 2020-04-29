@@ -55,8 +55,8 @@ class TaskController {
         }.resume()
     }
     
-    func createTask(title: String, note: String, dueDate: Date) {
-        let task = Task(title: title, note: note, dueDate: Date())
+    func createTask(title: String, note: String, dueDate: Date, student: String) {
+        let task = Task(title: title, note: note, dueDate: Date(), student: student)
               put(task: task)
               do {
                   try CoreDataStack.shared.save()
@@ -127,5 +127,52 @@ class TaskController {
             }
             completion(nil)
         }.resume()
+    }
+    
+    func updateTasks(with representations: [TaskRepresentation]) {
+        
+        guard let apiController = apiController else {return}
+        let taskWithIDs = representations.filter({$0.id != nil })
+        let taskWithID = taskWithIDs.filter({$0.student == "\(apiController.bearer!.token)"})
+        
+        let idToFetch = taskWithID.compactMap({$0.id})
+        let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, taskWithID))
+        var tasksToCreate = repByID
+        
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", idToFetch)
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        
+        context.performAndWait {
+            do {
+                let existTasks = try context.fetch(fetchRequest)
+                
+                for task in existTasks {
+                    guard let id = task.id else {continue}
+                    guard let representation = repByID[id] else {continue}
+                    self.update(task: task, with: representation)
+                    tasksToCreate.removeValue(forKey: id)
+                }
+                for task in tasksToCreate.values {
+                    Task(taskRepresentation: task, context: context)
+                }
+            } catch {
+                NSLog("Error fetching student: \(error)")
+            }
+            do {
+                try CoreDataStack.shared.save(context: context)
+            } catch {
+                NSLog("save failed when updating students")
+            }
+        }
+        
+    }
+    
+    private func update(task: Task, with rep: TaskRepresentation) {
+        task.id = rep.id ?? UUID().uuidString
+        task.title = rep.title
+        task.note = rep.note
+        task.dueDate = rep.dueDate
     }
 }

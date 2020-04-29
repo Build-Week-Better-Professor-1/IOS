@@ -24,7 +24,7 @@ class CoreData: XCTestCase {
     }
     
     func testMakeTask() {
-        let task = Task(title: "Lydia", note: "Lydia", dueDate: Date())
+        let task = Task(title: "Lydia", note: "Lydia", dueDate: Date(), student: "Lydia")
         XCTAssertEqual(task.note, "Lydia")
         XCTAssertEqual(task.title, "Lydia")
         XCTAssertNotNil(task.dueDate)

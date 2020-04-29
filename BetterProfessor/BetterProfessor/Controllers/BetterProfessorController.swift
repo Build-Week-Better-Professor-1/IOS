@@ -28,7 +28,7 @@ class BetterProfessorController {
             NSLog("Saving new student failed")
         }
     }
-    func updateStudent(student: Student, name: String, email: String, taskNotes: String,taskTitle: String, taskDueDate: Date) {
+    func updateStudent(student: Student, name: String, email: String) {
         student.name = name
         student.email = email
         put(student: student)

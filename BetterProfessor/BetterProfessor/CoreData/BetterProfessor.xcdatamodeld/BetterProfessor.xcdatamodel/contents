@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F62f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G3020" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Professor" representedClassName="Professor" syncable="YES" codeGenerationType="class">
         <attribute name="password" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
@@ -9,17 +9,17 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="professor" optional="YES" attributeType="String"/>
-        <relationship name="taskAndstudent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Task" inverseName="taskAndstudent" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
         <attribute name="dueDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="student" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="taskAndstudent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="taskAndstudent" inverseEntity="Student"/>
     </entity>
     <elements>
         <element name="Professor" positionX="-54" positionY="-9" width="128" height="73"/>
-        <element name="Student" positionX="325.328125" positionY="-106.83984375" width="128" height="118"/>
-        <element name="Task" positionX="103.18359375" positionY="-32.20703125" width="128" height="103"/>
+        <element name="Student" positionX="325.328125" positionY="-106.83984375" width="128" height="103"/>
+        <element name="Task" positionX="103.18359375" positionY="-32.20703125" width="128" height="118"/>
     </elements>
 </model>

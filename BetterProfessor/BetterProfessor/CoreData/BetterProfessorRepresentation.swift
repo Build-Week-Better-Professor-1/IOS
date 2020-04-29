@@ -20,7 +20,9 @@ struct StudentRepresentation: Codable {
     var professor: String
 }
 struct TaskRepresentation: Codable {
+    var id: String?
     var title: String
     var note: String?
     var dueDate: Date
+    var student: String
 }
