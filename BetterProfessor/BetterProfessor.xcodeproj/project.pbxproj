@@ -20,11 +20,22 @@
 		27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */; };
 		27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */; };
 		AE4EC80B2459CF1F00CC88AD /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC80A2459CF1F00CC88AD /* Bearer.swift */; };
+		AE4EC8172459FA2500CC88AD /* BetterProfessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC8162459FA2500CC88AD /* BetterProfessorTests.swift */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
 		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
 		AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE4EC8192459FA2500CC88AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27308BD02457487700CEE5B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27308BD72457487700CEE5B2;
+			remoteInfo = BetterProfessor;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
@@ -42,6 +53,9 @@
 		27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentViewController.swift; sourceTree = "<group>"; };
 		27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentInfoViewController.swift; sourceTree = "<group>"; };
 		AE4EC80A2459CF1F00CC88AD /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		AE4EC8142459FA2500CC88AD /* BetterProfessorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterProfessorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4EC8162459FA2500CC88AD /* BetterProfessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorTests.swift; sourceTree = "<group>"; };
+		AE4EC8182459FA2500CC88AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +70,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE4EC8112459FA2500CC88AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -63,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				27308BDA2457487700CEE5B2 /* BetterProfessor */,
+				AE4EC8152459FA2500CC88AD /* BetterProfessorTests */,
 				27308BD92457487700CEE5B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				27308BD82457487700CEE5B2 /* BetterProfessor.app */,
+				AE4EC8142459FA2500CC88AD /* BetterProfessorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +163,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		AE4EC8152459FA2500CC88AD /* BetterProfessorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE4EC8162459FA2500CC88AD /* BetterProfessorTests.swift */,
+				AE4EC8182459FA2500CC88AD /* Info.plist */,
+			);
+			path = BetterProfessorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,18 +192,40 @@
 			productReference = 27308BD82457487700CEE5B2 /* BetterProfessor.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AE4EC8132459FA2500CC88AD /* BetterProfessorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE4EC81D2459FA2500CC88AD /* Build configuration list for PBXNativeTarget "BetterProfessorTests" */;
+			buildPhases = (
+				AE4EC8102459FA2500CC88AD /* Sources */,
+				AE4EC8112459FA2500CC88AD /* Frameworks */,
+				AE4EC8122459FA2500CC88AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE4EC81A2459FA2500CC88AD /* PBXTargetDependency */,
+			);
+			name = BetterProfessorTests;
+			productName = BetterProfessorTests;
+			productReference = AE4EC8142459FA2500CC88AD /* BetterProfessorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		27308BD02457487700CEE5B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Chris Dobek";
 				TargetAttributes = {
 					27308BD72457487700CEE5B2 = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					AE4EC8132459FA2500CC88AD = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 27308BD72457487700CEE5B2;
 					};
 				};
 			};
@@ -189,6 +243,7 @@
 			projectRoot = "";
 			targets = (
 				27308BD72457487700CEE5B2 /* BetterProfessor */,
+				AE4EC8132459FA2500CC88AD /* BetterProfessorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +256,13 @@
 				27308BE82457488100CEE5B2 /* LaunchScreen.storyboard in Resources */,
 				27308BE52457488100CEE5B2 /* Assets.xcassets in Resources */,
 				27308BE32457487700CEE5B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE4EC8122459FA2500CC88AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +290,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE4EC8102459FA2500CC88AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE4EC8172459FA2500CC88AD /* BetterProfessorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE4EC81A2459FA2500CC88AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27308BD72457487700CEE5B2 /* BetterProfessor */;
+			targetProxy = AE4EC8192459FA2500CC88AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		27308BE12457487700CEE5B2 /* Main.storyboard */ = {
@@ -402,6 +480,46 @@
 			};
 			name = Release;
 		};
+		AE4EC81B2459FA2500CC88AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BetterProfessorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lydia.BetterProfessorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterProfessor.app/BetterProfessor";
+			};
+			name = Debug;
+		};
+		AE4EC81C2459FA2500CC88AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BetterProfessorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lydia.BetterProfessorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterProfessor.app/BetterProfessor";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -419,6 +537,15 @@
 			buildConfigurations = (
 				27308BED2457488100CEE5B2 /* Debug */,
 				27308BEE2457488100CEE5B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE4EC81D2459FA2500CC88AD /* Build configuration list for PBXNativeTarget "BetterProfessorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE4EC81B2459FA2500CC88AD /* Debug */,
+				AE4EC81C2459FA2500CC88AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -19,39 +19,6 @@ class BetterProfessorController {
     }
     var apiController: APIController?
     
-//    var taskRep: [TaskRepresentation] = []
-//    func fetchTask(completion: @escaping ((Error?) -> Void) = { _ in }) {
-//        let requestURL = baseUrl.appendingPathExtension("json")
-//
-//            URLSession.shared.dataTask(with: requestURL) { data, _, error in
-//                if let error = error {
-//                    NSLog("Error fetching task from server: \(error)")
-//                    completion(error)
-//                    return
-//                }
-//
-//                guard let data = data else {
-//                    NSLog("No data returned from data task")
-//                    completion(NSError())
-//                    return
-//                }
-//
-//                do {
-//                    self.taskRep = try JSONDecoder().decode([String: TaskRepresentation].self, from: data).map({$0.value})
-//                    //self.updateStudents(with: self.studentRep)
-//                } catch {
-//                    NSLog("Error decoding JSON data when fetching student: \(error)")
-//                    completion(error)
-//                    return
-//                }
-//
-//                completion(nil)
-//
-//            }.resume()
-//    }
-//    func createTask(task: Task) {
-//
-//    }
     func createStudent(name: String, email: String, professor: String) {
         let student = Student(name: name, email: email, professor: professor)
         put(student: student)
