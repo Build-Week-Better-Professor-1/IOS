@@ -12,7 +12,7 @@
         <relationship name="taskAndstudent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Task" inverseName="taskAndstudent" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
-        <attribute name="dueDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dueDate" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="student" attributeType="String"/>

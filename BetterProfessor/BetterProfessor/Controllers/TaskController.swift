@@ -14,7 +14,7 @@ class TaskController {
     
     // MARK: - Properties
     let baseURL = URL(string: "https://betterprofessortask.firebaseio.com/")!
-    
+    typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     var apiController: APIController?
     
     init(){
@@ -55,8 +55,8 @@ class TaskController {
         }.resume()
     }
     
-    func createTask(title: String, note: String, dueDate: Date, student: String) {
-        let task = Task(title: title, note: note, dueDate: Date(), student: student)
+    func createTask(title: String, note: String, dueDate: String, student: String) {
+        let task = Task(title: title, note: note, dueDate: dueDate, student: student)
               put(task: task)
               do {
                   try CoreDataStack.shared.save()
@@ -75,6 +75,45 @@ class TaskController {
             NSLog("Saving edited student failed")
         }
     }
+    
+    func sendTaskToServer(task: Task, completion: @escaping CompletionHandler = { _ in }) {
+           // Unwrapping
+           guard let id = task.id,
+               let title = task.title,
+            let note = task.note,
+            let date = task.dueDate,
+            let student = task.student else {
+                   return
+           }
+           // Creating Representation
+           let taskRepresentation = TaskRepresentation(id: id, title: title, note: note, dueDate: date, student: student)
+           
+           // RequestURL
+           let requestURL = baseURL.appendingPathComponent(id).appendingPathExtension("json")
+           
+           var request = URLRequest(url: requestURL)
+           request.httpMethod = "PUT"
+           
+           do {
+               request.httpBody = try JSONEncoder().encode(taskRepresentation)
+           } catch {
+               print("Error encoding in SendToServer: \(error)")
+               return
+           }
+           
+           URLSession.shared.dataTask(with: request) { (data, response, error) in
+               if let error = error {
+                   NSLog("Error sending task to server: \(error)")
+                   return
+               }
+               
+               guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                   print("Bad response when fetching")
+                   return
+               }
+               completion(.success(true))
+           }.resume()
+       }
     
     func delete(task: Task) {
         CoreDataStack.shared.mainContext.delete(task)

@@ -58,7 +58,7 @@ extension Task {
     @discardableResult convenience init(id: String = UUID().uuidString,
                                         title: String,
                                         note: String,
-                                        dueDate: Date,
+                                        dueDate: String,
                                         student: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context:context)
