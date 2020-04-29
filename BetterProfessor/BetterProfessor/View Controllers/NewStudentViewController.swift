@@ -27,7 +27,7 @@ class NewStudentViewController: UIViewController {
         
         guard let studentName = studentNameTextField.text, !studentName.isEmpty,
             let studentEmail = studentEmailTextField.text, !studentEmail.isEmpty else {return}
-        betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(apiController!.token!)")
+        betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(apiController!.bearer!.token)")
         navigationController?.popViewController(animated: true)
     }
     

@@ -29,7 +29,7 @@ class APIController {
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
     
     // create function for sign in
-    var token: String?
+    var bearer: Bearer?
     func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
         let signInURL = baseUrl.appendingPathComponent("auth/login")
         
@@ -39,7 +39,7 @@ class APIController {
         
         let jsonEncoder = JSONEncoder()
         let signInRep = ["email": "\(user.professorRepresentation!.username)",
-        "password": "\(user.professorRepresentation!.password)"]
+            "password": "\(user.professorRepresentation!.password)"]
         do {
             let jsonData = try jsonEncoder.encode(signInRep)
             request.httpBody = jsonData
@@ -54,25 +54,24 @@ class APIController {
                 completion(error)
                 return
             }
-
+            
             if let response = response as? HTTPURLResponse {
                 NSLog("Response: \(response)")
-                completion(nil)
-                return
             }
-
+            
             guard let data = data else {
                 completion(NSError(domain: "Data not found", code: 99, userInfo: nil))
                 return
             }
             do {
-                let result = try JSONDecoder().decode([String: Bearer].self, from: data)
+                let result = try JSONDecoder().decode(Bearer.self, from: data)
+                self.bearer = result
+                completion(nil)
             } catch {
                 NSLog("1")
             }
         }.resume()
-        self.token = "\(user.professorRepresentation!.username)"
-
+        
     }
     
     func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {
@@ -85,8 +84,8 @@ class APIController {
         let jsonEncoder = JSONEncoder()
         
         let signUpRep = ["name": "",
-        "email": "\(user.professorRepresentation!.username)",
-        "password": "\(user.professorRepresentation!.password)"]
+                         "email": "\(user.professorRepresentation!.username)",
+            "password": "\(user.professorRepresentation!.password)"]
         
         do {
             let jsonData = try jsonEncoder.encode(signUpRep)
@@ -111,19 +110,7 @@ class APIController {
             
             completion(nil)
         }.resume()
-
+        
     }
-    URLSession.shared.dataTask(with: request) { _, response, error in
-      if let error = error {
-        completion(error)
-        return
-      }
-      if let response = response as? HTTPURLResponse{
-        NSLog("Response: \(response)")
-        completion(nil)
-        return
-      }
-      completion(nil)
-    }.resume()
-  }
+
 }
