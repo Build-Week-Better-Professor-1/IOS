@@ -17,8 +17,10 @@ struct StudentRepresentation: Codable {
     var id: String?
     var name: String
     var email: String
-    var taskDueDate: Date
-    var taskNotes: String
-    var taskTitle: String
     var professor: String
+}
+struct TaskRepresentation: Codable {
+    var title: String
+    var note: String?
+    var dueDate: Date
 }

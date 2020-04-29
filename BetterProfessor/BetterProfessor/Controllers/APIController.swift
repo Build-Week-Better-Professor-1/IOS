@@ -23,73 +23,94 @@ enum NetworkError: Error {
     case noDecode
 }
 
-class APIController {
-  private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
-  var bearer: Bearer?
-  // create function for sign in
-  func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
-    let signInURL = baseUrl
-    var request = URLRequest(url: signInURL)
-    request.httpMethod = HTTPMethod.post.rawValue
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    let jsonEncoder = JSONEncoder()
-    do {
-      let jsonData = try jsonEncoder.encode(user.professorRepresentation)
-      request.httpBody = jsonData
-    } catch {
-      NSLog("Encode error in sign in")
-      completion(error)
-      return
+
+
+class APIController {    
+    private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
+    
+    // create function for sign in
+    var bearer: Bearer?
+    func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
+        let signInURL = baseUrl.appendingPathComponent("auth/login")
+        
+        var request = URLRequest(url: signInURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonEncoder = JSONEncoder()
+        let signInRep = ["email": "\(user.professorRepresentation!.username)",
+            "password": "\(user.professorRepresentation!.password)"]
+        do {
+            let jsonData = try jsonEncoder.encode(signInRep)
+            request.httpBody = jsonData
+        } catch {
+            NSLog("Encode error in sign in")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                NSLog("Response: \(response)")
+            }
+            
+            guard let data = data else {
+                completion(NSError(domain: "Data not found", code: 99, userInfo: nil))
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Bearer.self, from: data)
+                self.bearer = result
+                completion(nil)
+            } catch {
+                NSLog("1")
+            }
+        }.resume()
+        
     }
-    URLSession.shared.dataTask(with: request) { data, response, error in
-      if let error = error {
-        completion(error)
-        return
-      }
-      if let response = response as? HTTPURLResponse {
-        NSLog("Response: \(response)")
-        completion(nil)
-        return
-      }
-      guard let data = data else {
-        completion(NSError(domain: "Data not found", code: 99, userInfo: nil))
-        return
-      }
-      let decoder = JSONDecoder()
-      do {
-        self.bearer = try decoder.decode(Bearer.self, from: data)
-        completion(nil)
-      } catch {
-        NSLog("Error decoding bearer object: \(error)")
-        completion(error)
-      }
-    }.resume()
-  }
-  func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {
-    let signUpURL = baseUrl
-    var request = URLRequest(url: signUpURL)
-    request.httpMethod = HTTPMethod.post.rawValue
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    let jsonEncoder = JSONEncoder()
-    do {
-      let jsonData = try jsonEncoder.encode(user.professorRepresentation)
-      request.httpBody = jsonData
-    } catch {
-      NSLog("Encode error in sign up")
-      completion(error)
-      return
+    
+    func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {
+        let signUpURL = baseUrl.appendingPathComponent("auth/register")
+        
+        var request = URLRequest(url: signUpURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonEncoder = JSONEncoder()
+        
+        let signUpRep = ["name": "",
+                         "email": "\(user.professorRepresentation!.username)",
+            "password": "\(user.professorRepresentation!.password)"]
+        
+        do {
+            let jsonData = try jsonEncoder.encode(signUpRep)
+            request.httpBody = jsonData
+        } catch {
+            NSLog("Encode error in sign up")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse{
+                NSLog("Response: \(response)")
+                completion(nil)
+                return
+            }
+            
+            completion(nil)
+        }.resume()
+        
     }
-    URLSession.shared.dataTask(with: request) { _, response, error in
-      if let error = error {
-        completion(error)
-        return
-      }
-      if let response = response as? HTTPURLResponse{
-        NSLog("Response: \(response)")
-        completion(nil)
-        return
-      }
-      completion(nil)
-    }.resume()
-  }
+
 }

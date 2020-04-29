@@ -26,18 +26,37 @@ class DashboardTableViewController: UITableViewController {
     
     var betterProfessorController = BetterProfessorController()
     
-    //var student: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    var students: [Student] = []
     var apiController = APIController()
+    var betterProfessorController = BetterProfessorController()
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // transition to login view if conditions require
-        if apiController.bearer == nil {
+        let bearer = apiController.bearer
+        if bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
+        } else {
+            betterProfessorController.fetchStudent() {result in
+                let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
+                let context = CoreDataStack.shared.mainContext
+                
+                context.perform {
+                    do {
+                        self.students = try context.fetch(fetchRequest)
+                    } catch {
+                        NSLog("Error fetching student in Dashboard VC: \(error)")
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
 
@@ -45,17 +64,17 @@ class DashboardTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return betterProfessorController.studentRep.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
+        cell.textLabel?.text = betterProfessorController.studentRep[indexPath.row].name
 
 
         return cell
@@ -76,6 +95,9 @@ class DashboardTableViewController: UITableViewController {
                     NSLog("Error saving managed object context: \(error)")
                 }
             }
+
+            betterProfessorController.delete(student: students[indexPath.row])
+
         }
     }
     
@@ -84,11 +106,20 @@ class DashboardTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ShowStudentSegue":
-            guard let showStudentVC = segue.destination as? EditStudentInfoViewController else {return}
-            print(showStudentVC)
+            guard let showStudentVC = segue.destination as? EditStudentInfoViewController,
+                let index = tableView.indexPathForSelectedRow else {return}
+            showStudentVC.betterProfessorController = betterProfessorController
+            showStudentVC.student = betterProfessorController.studentRep[index.row]
+            
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}
-            print(addStudentVC)
+            addStudentVC.betterProfessorController = betterProfessorController
+            addStudentVC.apiController = apiController
+            
+        case "LoginModalSegue":
+            guard let loginVC = segue.destination as? LoginViewController else {return}
+            loginVC.betterProfessorController = betterProfessorController
+            loginVC.apiController = apiController
         default:
             break
         }

@@ -10,6 +10,8 @@ import UIKit
 
 class NewStudentViewController: UIViewController {
     
+    var betterProfessorController: BetterProfessorController?
+    var apiController: APIController?
     // MARK: - Outlets
     @IBOutlet weak var studentNameTextField: UITextField!
     @IBOutlet weak var studentEmailTextField: UITextField!
@@ -20,15 +22,14 @@ class NewStudentViewController: UIViewController {
 
     }
     // MARK: - Actions
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-         navigationController?.dismiss(animated: true, completion: nil)
-    }
     
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
+    @IBAction func saveTapped(_ sender: Any) {
+        
         guard let studentName = studentNameTextField.text, !studentName.isEmpty,
             let studentEmail = studentEmailTextField.text, !studentEmail.isEmpty else {return}
-        try! CoreDataStack.shared.save()
+        betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(apiController!.bearer!.token)")
+        navigationController?.popViewController(animated: true)
     }
+    
 
 }
