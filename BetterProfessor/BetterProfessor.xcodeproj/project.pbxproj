@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		271A7F2F2459ED9E00D75E8A /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F2E2459ED9E00D75E8A /* Bearer.swift */; };
 		271A7F312459F25900D75E8A /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F302459F25900D75E8A /* TaskController.swift */; };
+		271A7F33245A1B5B00D75E8A /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F32245A1B5B00D75E8A /* EditTaskViewController.swift */; };
 		271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 271C785A2458B20700C8C21E /* BetterProfessor.xcdatamodeld */; };
 		271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */; };
 		271C78602458B32100C8C21E /* BetterProfessorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		271A7F2E2459ED9E00D75E8A /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		271A7F302459F25900D75E8A /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		271A7F32245A1B5B00D75E8A /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
 		271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BetterProfessor+Convenience.swift"; sourceTree = "<group>"; };
 		271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorRepresentation.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				27308BF92457504E00CEE5B2 /* LoginViewController.swift */,
 				AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */,
 				27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */,
+				271A7F32245A1B5B00D75E8A /* EditTaskViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */,
 				271A7F312459F25900D75E8A /* TaskController.swift in Sources */,
 				27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */,
+				271A7F33245A1B5B00D75E8A /* EditTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
