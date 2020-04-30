@@ -13,6 +13,7 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
 
     var wasEdited = false
     var betterProfessorController: BetterProfessorController?
+    var taskController: TaskController?
     var student: Student? {
         didSet {
             updateViews()
@@ -37,8 +38,8 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-
-        return UITableViewCell()
+        //cell.textLabel?.text =
+        return cell
     }
 
     override func viewDidLoad() {
@@ -93,9 +94,9 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-//        case "AddTaskSegue":
-//            guard let addTaskVC = segue.destination as? AddTaskViewController else {return}
-//            print(addTaskVC)
+        case "AddTaskSegue":
+            guard let addTaskVC = segue.destination as? AddTaskViewController else {return}
+//            addTaskVC.taskController
         case "ShowTaskSegue":
             guard let showTaskVC = segue.destination as? EditTaskViewController, let indexPath = tableView.indexPathForSelectedRow else {return}
             print(showTaskVC)

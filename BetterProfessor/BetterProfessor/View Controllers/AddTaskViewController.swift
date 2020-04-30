@@ -12,6 +12,7 @@ class AddTaskViewController: UIViewController {
     
     //MARK: - Properties
     var taskController: TaskController?
+    var token: String?
     
     //MARK: - Outlets
     @IBOutlet weak var taskTitleTextField: UITextField!
@@ -31,8 +32,7 @@ class AddTaskViewController: UIViewController {
             let date = taskDueDateTextField.text,
             !date.isEmpty else { return }
                 
-        let task = Task(title: title, note: taskNoteTextField.text, dueDate: date)
-            taskController?.sendTaskToServer(task: task)
+            taskController?.createTask(title: <#T##String#>, note: <#T##String#>, dueDate: <#T##String#>)
             do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {
@@ -40,6 +40,6 @@ class AddTaskViewController: UIViewController {
                 return
             }
 
-            navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         }
     }

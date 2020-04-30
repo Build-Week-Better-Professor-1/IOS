@@ -182,9 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				27308BF724574ED500CEE5B2 /* DashboardTableViewController.swift */,
+				27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */,
 				27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */,
 				27308BF92457504E00CEE5B2 /* LoginViewController.swift */,
-				27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */,
 				27005083245B4AA600739F62 /* EditTaskViewController.swift */,
 				27005085245B4D3700739F62 /* AddTaskViewController.swift */,
 			);
@@ -266,7 +266,7 @@
 				27308BD42457487700CEE5B2 /* Sources */,
 				27308BD52457487700CEE5B2 /* Frameworks */,
 				27308BD62457487700CEE5B2 /* Resources */,
-				AE71F991245B63DC00EC9083 /* ShellScript */,
+				AEEDC9B3245B767F000C2214 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -453,7 +453,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE71F991245B63DC00EC9083 /* ShellScript */ = {
+		AEEDC9B3245B767F000C2214 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -468,7 +468,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

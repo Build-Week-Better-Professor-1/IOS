@@ -12,7 +12,10 @@ import CoreData
 class TaskController {
 
     // MARK: - Properties
-    let baseURL = URL(string: "https://betterprofessortask.firebaseio.com/")!
+    //Lydia's firebase for testing
+    //let baseURL = URL(string: "https://betterprofessortask.firebaseio.com/")!
+    let baseURL = URL(string: "https://betterprofessortasktest-2cfc9.firebaseio.com/")!
+    
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     var apiController: APIController?
 
@@ -75,44 +78,6 @@ class TaskController {
         }
     }
 
-    func sendTaskToServer(task: Task, completion: @escaping CompletionHandler = { _ in }) {
-           // Unwrapping
-           guard let id = task.id,
-               let title = task.title,
-            let note = task.note,
-            let date = task.dueDate else {
-                   return
-           }
-           // Creating Representation
-           let taskRepresentation = TaskRepresentation(id: id, title: title, note: note, dueDate: date)
-           
-           // RequestURL
-           let requestURL = baseURL.appendingPathComponent(id).appendingPathExtension("json")
-
-           var request = URLRequest(url: requestURL)
-           request.httpMethod = "PUT"
-
-           do {
-               request.httpBody = try JSONEncoder().encode(taskRepresentation)
-           } catch {
-               print("Error encoding in SendToServer: \(error)")
-               return
-           }
-
-           URLSession.shared.dataTask(with: request) { (_, response, error) in
-               if let error = error {
-                   NSLog("Error sending task to server: \(error)")
-                   return
-               }
-
-               guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                   print("Bad response when fetching")
-                   return
-               }
-               completion(.success(true))
-           }.resume()
-       }
-
     func delete(task: Task) {
         CoreDataStack.shared.mainContext.delete(task)
         do {
@@ -144,13 +109,12 @@ class TaskController {
     }
 
     private func put(task: Task, completion: @escaping ((Error?) -> Void) = { _ in }) {
-        let title = task.title
-        let requestURL = baseUrl.appendingPathComponent(title ?? " ").appendingPathExtension("json")
+        let requestURL = baseUrl.appendingPathComponent("").appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 
         do {
-            request.httpBody = try JSONEncoder().encode(title)
+            request.httpBody = try JSONEncoder().encode(task.taskRepresentation)
         } catch {
             NSLog("Error encoding in put method: \(error)")
             completion(error)
