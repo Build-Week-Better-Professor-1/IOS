@@ -152,7 +152,11 @@
                         <viewLayoutGuide key="safeArea" id="5pe-eb-9ze"/>
                     </view>
                     <navigationItem key="navigationItem" title="Student Info" id="typ-eP-Dkr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pAu-a5-nxV"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pAu-a5-nxV">
+                            <connections>
+                                <segue destination="XT0-vz-Doc" kind="show" id="94e-de-SjU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="studentEmail" destination="wVi-A4-s68" id="BKj-bp-umc"/>

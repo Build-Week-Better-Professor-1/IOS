@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014DACFB8BAF755515FB5A39 /* Pods_BetterProfessorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA68D9F6A854F6E3750508A /* Pods_BetterProfessorTests.framework */; };
 		271A7F2F2459ED9E00D75E8A /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F2E2459ED9E00D75E8A /* Bearer.swift */; };
 		271A7F312459F25900D75E8A /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F302459F25900D75E8A /* TaskController.swift */; };
-		271A7F33245A1B5B00D75E8A /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A7F32245A1B5B00D75E8A /* EditTaskViewController.swift */; };
-		271C785C2458B20700C8C21E /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 271C785A2458B20700C8C21E /* BetterProfessor.xcdatamodeld */; };
 		271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */; };
 		271C78602458B32100C8C21E /* BetterProfessorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */; };
 		27308BDC2457487700CEE5B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BDB2457487700CEE5B2 /* AppDelegate.swift */; };
@@ -22,15 +21,17 @@
 		27308BFA2457504E00CEE5B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BF92457504E00CEE5B2 /* LoginViewController.swift */; };
 		27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */; };
 		27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */; };
+		7EA0313BCD6AD22F4BE515EE /* Pods_BetterProfessor_BetterProfessorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 110E9D3E2CE142915C23BFD2 /* Pods_BetterProfessor_BetterProfessorUITests.framework */; };
+		9AD85264F9BD8818D555815D /* Pods_BetterProfessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51636BB19B302A1A3D547F55 /* Pods_BetterProfessor.framework */; };
 		AE4EC840245A02F900CC88AD /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC83F245A02F900CC88AD /* CoreData.swift */; };
 		AE4EC84A245A088F00CC88AD /* BetterProfessorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC849245A088F00CC88AD /* BetterProfessorUITests.swift */; };
 		AE4EC852245A0A8500CC88AD /* BestProfessorControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */; };
 		AE4EC858245A1FED00CC88AD /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC856245A1FED00CC88AD /* BetterProfessor.xcdatamodeld */; };
 		AE4EC85E245A5D6E00CC88AD /* DashBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */; };
-		AE4EC864245A7C9000CC88AD /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC863245A7C9000CC88AD /* EditTaskViewController.swift */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
 		AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */; };
+		AECFD044245B474D0007D93F /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECFD043245B474D0007D93F /* EditTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		023D7606A7BA324DA6EB6AF6 /* Pods-BetterProfessor-BetterProfessorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterProfessor-BetterProfessorUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterProfessor-BetterProfessorUITests/Pods-BetterProfessor-BetterProfessorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		072317C5A19E5DC5D87A362B /* Pods-BetterProfessor-BetterProfessorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterProfessor-BetterProfessorUITests.release.xcconfig"; path = "Target Support Files/Pods-BetterProfessor-BetterProfessorUITests/Pods-BetterProfessor-BetterProfessorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		110E9D3E2CE142915C23BFD2 /* Pods_BetterProfessor_BetterProfessorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterProfessor_BetterProfessorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA68D9F6A854F6E3750508A /* Pods_BetterProfessorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterProfessorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271A7F2E2459ED9E00D75E8A /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		271A7F302459F25900D75E8A /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
-		271A7F32245A1B5B00D75E8A /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
-		271C785B2458B20700C8C21E /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
 		271C785D2458B2DF00C8C21E /* BetterProfessor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BetterProfessor+Convenience.swift"; sourceTree = "<group>"; };
 		271C785F2458B32100C8C21E /* BetterProfessorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorRepresentation.swift; sourceTree = "<group>"; };
 		27308BD82457487700CEE5B2 /* BetterProfessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterProfessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +71,9 @@
 		27308BF92457504E00CEE5B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentViewController.swift; sourceTree = "<group>"; };
 		27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentInfoViewController.swift; sourceTree = "<group>"; };
+		51636BB19B302A1A3D547F55 /* Pods_BetterProfessor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterProfessor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CB0002E460E2C046B2DC18 /* Pods-BetterProfessorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterProfessorTests.release.xcconfig"; path = "Target Support Files/Pods-BetterProfessorTests/Pods-BetterProfessorTests.release.xcconfig"; sourceTree = "<group>"; };
+		87E3B888E8DDDD094B791705 /* Pods-BetterProfessor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterProfessor.debug.xcconfig"; path = "Target Support Files/Pods-BetterProfessor/Pods-BetterProfessor.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4EC8302459FFE600CC88AD /* BetterProfessorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterProfessorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4EC8342459FFE600CC88AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4EC83F245A02F900CC88AD /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -77,10 +83,12 @@
 		AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestProfessorControllerTest.swift; sourceTree = "<group>"; };
 		AE4EC857245A1FED00CC88AD /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
 		AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardTest.swift; sourceTree = "<group>"; };
-		AE4EC863245A7C9000CC88AD /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorController.swift; sourceTree = "<group>"; };
+		AECFD043245B474D0007D93F /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
+		E81D75925A0EABD5D205DE6C /* Pods-BetterProfessorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterProfessorTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterProfessorTests/Pods-BetterProfessorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E9BE04B2E1D2D4BC24D54275 /* Pods-BetterProfessor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterProfessor.release.xcconfig"; path = "Target Support Files/Pods-BetterProfessor/Pods-BetterProfessor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD85264F9BD8818D555815D /* Pods_BetterProfessor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014DACFB8BAF755515FB5A39 /* Pods_BetterProfessorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA0313BCD6AD22F4BE515EE /* Pods_BetterProfessor_BetterProfessorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +126,8 @@
 				AE4EC8312459FFE600CC88AD /* BetterProfessorTests */,
 				AE4EC848245A088F00CC88AD /* BetterProfessorUITests */,
 				27308BD92457487700CEE5B2 /* Products */,
+				AD2A4ACD77EA1C700F05DBEB /* Pods */,
+				ABBFEC878998487F9EB14D09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,12 +177,11 @@
 		27308BF124574AF100CEE5B2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AE4EC863245A7C9000CC88AD /* EditTaskViewController.swift */,
+				AECFD043245B474D0007D93F /* EditTaskViewController.swift */,
 				27308BF724574ED500CEE5B2 /* DashboardTableViewController.swift */,
 				27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */,
 				27308BF92457504E00CEE5B2 /* LoginViewController.swift */,
 				27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */,
-				271A7F32245A1B5B00D75E8A /* EditTaskViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -193,6 +205,29 @@
 				271A7F302459F25900D75E8A /* TaskController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ABBFEC878998487F9EB14D09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51636BB19B302A1A3D547F55 /* Pods_BetterProfessor.framework */,
+				110E9D3E2CE142915C23BFD2 /* Pods_BetterProfessor_BetterProfessorUITests.framework */,
+				1CA68D9F6A854F6E3750508A /* Pods_BetterProfessorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD2A4ACD77EA1C700F05DBEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87E3B888E8DDDD094B791705 /* Pods-BetterProfessor.debug.xcconfig */,
+				E9BE04B2E1D2D4BC24D54275 /* Pods-BetterProfessor.release.xcconfig */,
+				023D7606A7BA324DA6EB6AF6 /* Pods-BetterProfessor-BetterProfessorUITests.debug.xcconfig */,
+				072317C5A19E5DC5D87A362B /* Pods-BetterProfessor-BetterProfessorUITests.release.xcconfig */,
+				E81D75925A0EABD5D205DE6C /* Pods-BetterProfessorTests.debug.xcconfig */,
+				63CB0002E460E2C046B2DC18 /* Pods-BetterProfessorTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		AE4EC8312459FFE600CC88AD /* BetterProfessorTests */ = {
@@ -222,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27308BEC2457488100CEE5B2 /* Build configuration list for PBXNativeTarget "BetterProfessor" */;
 			buildPhases = (
+				278BC91FF60790831DBF69C4 /* [CP] Check Pods Manifest.lock */,
 				27308BD42457487700CEE5B2 /* Sources */,
 				27308BD52457487700CEE5B2 /* Frameworks */,
 				27308BD62457487700CEE5B2 /* Resources */,
+				AE71F991245B63DC00EC9083 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -239,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE4EC8372459FFE600CC88AD /* Build configuration list for PBXNativeTarget "BetterProfessorTests" */;
 			buildPhases = (
+				AC782F4DF8C45530434A4CD6 /* [CP] Check Pods Manifest.lock */,
 				AE4EC82C2459FFE600CC88AD /* Sources */,
 				AE4EC82D2459FFE600CC88AD /* Frameworks */,
 				AE4EC82E2459FFE600CC88AD /* Resources */,
@@ -257,6 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE4EC850245A088F00CC88AD /* Build configuration list for PBXNativeTarget "BetterProfessorUITests" */;
 			buildPhases = (
+				7E94E30DD88632676BB1DA05 /* [CP] Check Pods Manifest.lock */,
 				AE4EC843245A088F00CC88AD /* Sources */,
 				AE4EC844245A088F00CC88AD /* Frameworks */,
 				AE4EC845245A088F00CC88AD /* Resources */,
@@ -342,6 +381,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		278BC91FF60790831DBF69C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterProfessor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E94E30DD88632676BB1DA05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterProfessor-BetterProfessorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC782F4DF8C45530434A4CD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterProfessorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE71F991245B63DC00EC9083 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27308BD42457487700CEE5B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -354,7 +479,7 @@
 				27308BDC2457487700CEE5B2 /* AppDelegate.swift in Sources */,
 				AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */,
 				27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */,
-				AE4EC864245A7C9000CC88AD /* EditTaskViewController.swift in Sources */,
+				AECFD044245B474D0007D93F /* EditTaskViewController.swift in Sources */,
 				271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */,
 				27308BF824574ED500CEE5B2 /* DashboardTableViewController.swift in Sources */,
 				271A7F2F2459ED9E00D75E8A /* Bearer.swift in Sources */,
@@ -362,7 +487,6 @@
 				271A7F312459F25900D75E8A /* TaskController.swift in Sources */,
 				27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */,
 				AE4EC858245A1FED00CC88AD /* BetterProfessor.xcdatamodeld in Sources */,
-				271A7F33245A1B5B00D75E8A /* EditTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +659,7 @@
 		};
 		27308BED2457488100CEE5B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87E3B888E8DDDD094B791705 /* Pods-BetterProfessor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -554,6 +679,7 @@
 		};
 		27308BEE2457488100CEE5B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9BE04B2E1D2D4BC24D54275 /* Pods-BetterProfessor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -573,6 +699,7 @@
 		};
 		AE4EC8382459FFE600CC88AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81D75925A0EABD5D205DE6C /* Pods-BetterProfessorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -595,6 +722,7 @@
 		};
 		AE4EC8392459FFE600CC88AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63CB0002E460E2C046B2DC18 /* Pods-BetterProfessorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -616,6 +744,7 @@
 		};
 		AE4EC84E245A088F00CC88AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 023D7606A7BA324DA6EB6AF6 /* Pods-BetterProfessor-BetterProfessorUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BetterProfessorUITests/Info.plist;
@@ -635,6 +764,7 @@
 		};
 		AE4EC84F245A088F00CC88AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 072317C5A19E5DC5D87A362B /* Pods-BetterProfessor-BetterProfessorUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BetterProfessorUITests/Info.plist;
