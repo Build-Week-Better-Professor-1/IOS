@@ -25,9 +25,9 @@
 		AE4EC852245A0A8500CC88AD /* BestProfessorControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */; };
 		AE4EC858245A1FED00CC88AD /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC856245A1FED00CC88AD /* BetterProfessor.xcdatamodeld */; };
 		AE4EC85E245A5D6E00CC88AD /* DashBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */; };
+		AE4EC864245A7C9000CC88AD /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC863245A7C9000CC88AD /* EditTaskViewController.swift */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
-		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
 		AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,9 +73,9 @@
 		AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestProfessorControllerTest.swift; sourceTree = "<group>"; };
 		AE4EC857245A1FED00CC88AD /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
 		AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardTest.swift; sourceTree = "<group>"; };
+		AE4EC863245A7C9000CC88AD /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		AEC8629E2458A4A100775FD8 /* BetterProfessorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterProfessorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,10 +160,10 @@
 		27308BF124574AF100CEE5B2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AE4EC863245A7C9000CC88AD /* EditTaskViewController.swift */,
 				27308BF724574ED500CEE5B2 /* DashboardTableViewController.swift */,
 				27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */,
 				27308BF92457504E00CEE5B2 /* LoginViewController.swift */,
-				AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */,
 				27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */,
 			);
 			path = "View Controllers";
@@ -349,11 +349,11 @@
 				27308BDC2457487700CEE5B2 /* AppDelegate.swift in Sources */,
 				AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */,
 				27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */,
+				AE4EC864245A7C9000CC88AD /* EditTaskViewController.swift in Sources */,
 				271C785E2458B2DF00C8C21E /* BetterProfessor+Convenience.swift in Sources */,
 				27308BF824574ED500CEE5B2 /* DashboardTableViewController.swift in Sources */,
 				271A7F2F2459ED9E00D75E8A /* Bearer.swift in Sources */,
 				AEC8629F2458A4A100775FD8 /* BetterProfessorController.swift in Sources */,
-				AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */,
 				271A7F312459F25900D75E8A /* TaskController.swift in Sources */,
 				27308BDE2457487700CEE5B2 /* SceneDelegate.swift in Sources */,
 				AE4EC858245A1FED00CC88AD /* BetterProfessor.xcdatamodeld in Sources */,
