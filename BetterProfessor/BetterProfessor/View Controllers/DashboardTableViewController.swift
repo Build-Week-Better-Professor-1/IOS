@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class DashboardTableViewController: UITableViewController {
-    
+
     lazy var fetchedResultsController: NSFetchedResultsController<Student> = {
         let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -21,11 +21,15 @@ class DashboardTableViewController: UITableViewController {
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Error doing frc fetch")
+        }
         return frc
     }()
-    // MARK: -Properties
-    
+    // MARK: - Properties
+
     override func viewDidLoad() {
         super.viewDidLoad()
         betterProfessorController.fetchStudent()
@@ -34,26 +38,26 @@ class DashboardTableViewController: UITableViewController {
     var token: String?
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         // transition to login view if conditions require
         let bearer = apiController.bearer
         if bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
         } else {
             betterProfessorController.token = apiController.bearer
-            betterProfessorController.fetchStudent() { error in
+            betterProfessorController.fetchStudent { error in
                 guard error == nil else {return}
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
-            
+
         }
     }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,18 +79,17 @@ class DashboardTableViewController: UITableViewController {
         return cell
     }
 
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
+
             let studentFR = fetchedResultsController.object(at: indexPath)
-            
+
             betterProfessorController.delete(student: studentFR)
-            
+
         }
     }
-    
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,11 +99,11 @@ class DashboardTableViewController: UITableViewController {
                 let index = tableView.indexPathForSelectedRow else {return}
             showStudentVC.betterProfessorController = betterProfessorController
             showStudentVC.student = fetchedResultsController.fetchedObjects?[index.row]
-            
+
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}
             addStudentVC.betterProfessorController = betterProfessorController
-            
+
         case "LoginModalSegue":
             guard let loginVC = segue.destination as? LoginViewController else {return}
             loginVC.betterProfessorController = betterProfessorController
@@ -109,7 +112,6 @@ class DashboardTableViewController: UITableViewController {
             break
         }
     }
-    
 
 }
 extension DashboardTableViewController: NSFetchedResultsControllerDelegate {
@@ -157,4 +159,3 @@ extension DashboardTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-

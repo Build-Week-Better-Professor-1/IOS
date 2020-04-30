@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     var wasEdited = false
     var betterProfessorController: BetterProfessorController?
     var student: Student? {
@@ -26,19 +26,18 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
             studentName.isUserInteractionEnabled = isEditing
         }
     }
-    
+
     @IBOutlet weak var studentName: UITextField!
     @IBOutlet weak var studentEmail: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-        
+
         return UITableViewCell()
     }
 
@@ -51,7 +50,7 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if editing { wasEdited = true }
-        
+
         studentName.isUserInteractionEnabled = true
         studentEmail.isUserInteractionEnabled = true
         navigationItem.setHidesBackButton(editing, animated: true)
@@ -75,7 +74,7 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
     }
     @IBAction func editStudentInfo(_ sender: Any) {
         isEditing = true
-    
+
     }
     @IBAction func saveStudentInfo(_ sender: Any) {
         guard isEditing == true else {return}
@@ -87,10 +86,9 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
             betterProfessorController.updateStudent(student: student, name: name, email: email)
         }
         isEditing = false
-        
+
     }
-    
-    
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,6 +104,5 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
             break
         }
     }
-    
 
 }

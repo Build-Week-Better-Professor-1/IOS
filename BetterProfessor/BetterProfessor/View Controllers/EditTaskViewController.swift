@@ -41,24 +41,24 @@ class EditTaskViewController: UIViewController {
   // MARK: - Editing
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
-     
+
     if editing { wasEdited = true }
-     
+
     taskTitleTextField.isUserInteractionEnabled = editing
     taskNoteTextView.isUserInteractionEnabled = editing
     taskDueDate.isUserInteractionEnabled = editing
-     
+
     navigationItem.hidesBackButton = editing
   }
-   
+
   // MARK: - Actions
   private func updateViews() {
     taskTitleTextField.text = task?.title
     taskTitleTextField.isUserInteractionEnabled = isEditing
-     
+
     taskNoteTextView.text = task?.note
     taskNoteTextView.isUserInteractionEnabled = isEditing
-     
+
     taskDueDate.text = task?.dueDate
     taskDueDate.isUserInteractionEnabled = isEditing
   }

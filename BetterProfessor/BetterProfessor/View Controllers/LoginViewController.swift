@@ -14,22 +14,20 @@ enum LoginType: String {
 }
 
 class LoginViewController: UIViewController {
-    
+
     var betterProfessorController: BetterProfessorController?
-    
+
     // MARK: - Outlets
     @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
-    
+
     // MARK: - Properties
     var apiController: APIController?
-    
-    var loginType : LoginType?
-    
-    
-    
+
+    var loginType: LoginType?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         submitButton.backgroundColor = UIColor(hue: 190/360, saturation: 70/100, brightness: 80/100, alpha: 1.0)
@@ -38,7 +36,7 @@ class LoginViewController: UIViewController {
         submitButton.layer.cornerRadius = 8.0
         submitButton.setTitle("Sign In", for: .normal)
     }
-    
+
     // MARK: - Actions
     @IBAction func loginTypeChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 1 {
@@ -49,7 +47,7 @@ class LoginViewController: UIViewController {
             submitButton.setTitle("Sign In", for: .normal)
         }
     }
-    
+
     var bearer: String?
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let apiController = apiController else {return}
@@ -64,7 +62,7 @@ class LoginViewController: UIViewController {
                             let alertController = UIAlertController(title: "Sign Up Done", message: "Please Login", preferredStyle: .alert)
                             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                             alertController.addAction(alertAction)
-                            self.present(alertController,animated: true) {
+                            self.present(alertController, animated: true) {
                                 self.loginType = .signIn
                                 self.loginTypeSegmentedControl.selectedSegmentIndex = 0
                                 self.submitButton.setTitle("Sign In", for: .normal)
