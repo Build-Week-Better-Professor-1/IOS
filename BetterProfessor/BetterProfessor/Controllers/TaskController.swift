@@ -55,8 +55,8 @@ class TaskController {
         }.resume()
     }
     
-    func createTask(title: String, note: String, dueDate: String) {
-        let task = Task(title: title, note: note, dueDate: dueDate)
+    func createTask(title: String, note: String, dueDate: String, student: String) {
+        let task = Task(title: title, note: note, dueDate: dueDate, student: student)
               put(task: task)
               do {
                   try CoreDataStack.shared.save()
@@ -78,15 +78,16 @@ class TaskController {
     }
     
     func sendTaskToServer(task: Task, completion: @escaping CompletionHandler = { _ in }) {
-           // Unwrapping
-           guard let id = task.id,
-               let title = task.title,
+        // Unwrapping
+        guard let id = task.id,
+            let title = task.title,
             let note = task.note,
-            let date = task.dueDate else {
-                   return
+            let date = task.dueDate,
+            let student = task.student else {
+                return
            }
            // Creating Representation
-           let taskRepresentation = TaskRepresentation(id: id, title: title, note: note, dueDate: date)
+        let taskRepresentation = TaskRepresentation(id: id, title: title, note: note, dueDate: date, student: student)
            
            // RequestURL
            let requestURL = baseURL.appendingPathComponent(id).appendingPathExtension("json")
