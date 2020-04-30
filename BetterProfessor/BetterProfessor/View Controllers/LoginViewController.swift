@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-
+    var bearer: String?
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let apiController = apiController else {return}
         if let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty {
@@ -75,10 +75,12 @@ class LoginViewController: UIViewController {
                 }
 
             } else {
-                apiController.signIn(with: professor) {error in
+                apiController.signIn(with: professor) { token, error  in
                     if let error = error {
                         NSLog("Error occured during sign in: \(error)")
                     } else {
+                        let token = token
+                        self.bearer = token
                         DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                         }

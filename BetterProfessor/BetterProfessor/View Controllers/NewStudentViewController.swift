@@ -11,7 +11,7 @@ import UIKit
 class NewStudentViewController: UIViewController {
     
     var betterProfessorController: BetterProfessorController?
-    var apiController: APIController?
+
     // MARK: - Outlets
     @IBOutlet weak var studentNameTextField: UITextField!
     @IBOutlet weak var studentEmailTextField: UITextField!
@@ -27,7 +27,7 @@ class NewStudentViewController: UIViewController {
         
         guard let studentName = studentNameTextField.text, !studentName.isEmpty,
             let studentEmail = studentEmailTextField.text, !studentEmail.isEmpty else {return}
-        betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(apiController!.bearer!.token)")
+        betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(betterProfessorController!.token!)")
         navigationController?.popViewController(animated: true)
     }
     

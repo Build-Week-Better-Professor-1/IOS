@@ -171,8 +171,9 @@ class TaskController {
     func updateTasks(with representations: [TaskRepresentation]) {
         
         guard let apiController = apiController else {return}
+        
         let taskWithIDs = representations.filter({$0.id != nil })
-        let taskWithID = taskWithIDs.filter({$0.student == "\(apiController.bearer!.token)"})
+        let taskWithID = taskWithIDs.filter({$0.student == "\(apiController.bearer!)"})
         
         let idToFetch = taskWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, taskWithID))

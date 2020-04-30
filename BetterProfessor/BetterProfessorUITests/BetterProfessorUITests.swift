@@ -62,14 +62,14 @@ class BetterProfessorUITests: XCTestCase {
         
         app.navigationBars["Students"].buttons["Add"].tap()
         studentName.tap()
-        studentName.typeText("lydia")
+        studentName.typeText("lydia1")
         
         studentEmail.tap()
         studentEmail.typeText("lydia")
         
         app.navigationBars["New Student Info"].buttons["Save"].tap()
         sleep(3)
-        let lydiaCell = app.tables.staticTexts["lydia"]
+        let lydiaCell = app.tables.staticTexts["lydia1"]
         XCTAssert(lydiaCell.exists)
     }
     
@@ -86,14 +86,14 @@ class BetterProfessorUITests: XCTestCase {
         
         app.navigationBars["Students"].buttons["Add"].tap()
         studentName.tap()
-        studentName.typeText("lydia")
+        studentName.typeText("lydia2")
         
         studentEmail.tap()
         studentEmail.typeText("lydia")
         
         app.navigationBars["New Student Info"].buttons["Save"].tap()
         sleep(3)
-        let lydiaCell = app.tables.staticTexts["lydia"]
+        let lydiaCell = app.tables.staticTexts["lydia2"]
         XCTAssert(lydiaCell.exists)
         sleep(1)
         lydiaCell.swipeLeft()
@@ -117,25 +117,33 @@ class BetterProfessorUITests: XCTestCase {
         
         app.navigationBars["Students"].buttons["Add"].tap()
         studentName.tap()
-        studentName.typeText("lydia")
+        studentName.typeText("lydia3")
         
         studentEmail.tap()
         studentEmail.typeText("lydia")
         
         app.navigationBars["New Student Info"].buttons["Save"].tap()
         sleep(3)
-        let lydiaCell = app.tables.staticTexts["lydia"]
+        let lydiaCell = app.tables.staticTexts["lydia3"]
         XCTAssert(lydiaCell.exists)
         sleep(1)
+
+        lydiaCell.tap()
+        app.buttons["Edit Student Info"].tap()
+        app.textFields["Student Name:"].tap()
         
-//        let app = XCUIApplication()
-//        let lydiaStaticText = app.tables/*@START_MENU_TOKEN@*/.staticTexts["lydia"]/*[[".cells.staticTexts[\"lydia\"]",".staticTexts[\"lydia\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        lydiaStaticText.tap()
-//        
-//        let studentsButton = app.navigationBars["Student Info"].buttons["Students"]
-//        studentsButton.tap()
-//        lydiaStaticText.tap()
-//        app.textFields["Student Name:"].swipeLeft()
+        let deleteKey = app/*@START_MENU_TOKEN@*/.keys["delete"]/*[[".keyboards.keys[\"delete\"]",".keys[\"delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        deleteKey.tap()
         
+        let moreKey = app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"letters\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        moreKey.tap()
+        
+        let key = app/*@START_MENU_TOKEN@*/.keys["4"]/*[[".keyboards.keys[\"4\"]",".keys[\"4\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key.tap()
+        
+        app.buttons["Save Student Info"].tap()
+        app.navigationBars["Student Info"].buttons["Students"].tap()
+        
+
     }
 }
