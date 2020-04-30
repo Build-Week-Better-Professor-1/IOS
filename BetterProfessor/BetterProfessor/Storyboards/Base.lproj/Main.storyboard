@@ -102,7 +102,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="XT0-vz-Doc" kind="show" identifier="ShowTaskSegue" id="wuF-IR-ypr"/>
+                                            <segue destination="BZ7-wI-qz9" kind="show" identifier="ShowTaskSegue" id="aCG-kR-IHn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -228,14 +228,82 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="taskDueDate" destination="TJv-eS-4ur" id="A4l-FB-bab"/>
-                        <outlet property="taskNoteTextView" destination="F3B-SL-s7c" id="wmR-Sy-4p8"/>
-                        <outlet property="taskTitleTextField" destination="rJd-a4-yNy" id="MTC-n9-mHv"/>
+                        <outlet property="taskDueDate" destination="TJv-eS-4ur" id="HFo-cc-pM6"/>
+                        <outlet property="taskNoteTextView" destination="vvt-mM-RFu" id="exh-x1-rRd"/>
+                        <outlet property="taskTitleTextField" destination="rJd-a4-yNy" id="Oq1-j1-I4G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7uF-Rv-g88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3571" y="256"/>
+        </scene>
+        <!--Reminder Details-->
+        <scene sceneID="JpC-KY-aM6">
+            <objects>
+                <viewController id="BZ7-wI-qz9" customClass="EditTaskViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pyD-Es-O5j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Smx-WX-oZm">
+                                <rect key="frame" x="20" y="170" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jp1-IZ-XYm"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="mef-FL-aga"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Due Date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PDo-Aw-4SW">
+                                <rect key="frame" x="20" y="240" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjM-nZ-tfh">
+                                <rect key="frame" x="20" y="294" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5jN-Ig-DUV">
+                                <rect key="frame" x="20" y="335" width="374" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="fU0-9x-FpT"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5jN-Ig-DUV" firstAttribute="top" secondItem="cjM-nZ-tfh" secondAttribute="bottom" constant="20" id="47X-ig-JDe"/>
+                            <constraint firstItem="Smx-WX-oZm" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="4CP-jv-PMZ"/>
+                            <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="PDo-Aw-4SW" secondAttribute="trailing" constant="20" id="5dI-eN-RNs"/>
+                            <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="cjM-nZ-tfh" secondAttribute="trailing" constant="343" id="7F3-HR-d74"/>
+                            <constraint firstItem="cjM-nZ-tfh" firstAttribute="top" secondItem="PDo-Aw-4SW" secondAttribute="bottom" constant="20" id="8SJ-DU-tVn"/>
+                            <constraint firstItem="5jN-Ig-DUV" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="ORd-4y-m90"/>
+                            <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="5jN-Ig-DUV" secondAttribute="trailing" constant="20" id="Z0X-G5-9yT"/>
+                            <constraint firstItem="PDo-Aw-4SW" firstAttribute="top" secondItem="Smx-WX-oZm" secondAttribute="bottom" constant="20" id="afM-vj-zQE"/>
+                            <constraint firstItem="PDo-Aw-4SW" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="cmp-uh-YSR"/>
+                            <constraint firstItem="Smx-WX-oZm" firstAttribute="top" secondItem="cra-Kb-1Su" secondAttribute="top" constant="30" id="d2u-ia-djr"/>
+                            <constraint firstItem="cjM-nZ-tfh" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="jMk-hI-RI6"/>
+                            <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="Smx-WX-oZm" secondAttribute="trailing" constant="20" id="taa-a8-OGO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cra-Kb-1Su"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reminder Details" id="GXq-mS-237"/>
+                    <connections>
+                        <outlet property="taskDueDate" destination="PDo-Aw-4SW" id="Y0p-Lk-D42"/>
+                        <outlet property="taskNoteTextView" destination="5jN-Ig-DUV" id="YH2-BO-fAW"/>
+                        <outlet property="taskTitleTextField" destination="Smx-WX-oZm" id="OcP-TQ-2us"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tli-cJ-d7V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4470" y="256"/>
         </scene>
         <!--New Student Info-->
         <scene sceneID="wR5-ky-w4S">

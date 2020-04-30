@@ -43,7 +43,7 @@ class TaskController {
             
             do {
                 self.taskRep = try JSONDecoder().decode([String: TaskRepresentation].self, from: data).map({$0.value})
-                //self.updateStudents(with: self.studentRep)
+                //self.updateStudents(with: self.taskRep)
             } catch {
                 NSLog("Error decoding JSON data when fetching student: \(error)")
                 completion(error)
@@ -65,9 +65,10 @@ class TaskController {
               }
           }
     
-    func updateTask(task: Task, title: String, note: String, taskDueDate: Date) {
+    func updateTask(task: Task, title: String, note: String, taskDueDate: String) {
         task.title = title
         task.note = note
+        task.dueDate = taskDueDate
         put(task: task)
         do {
             try CoreDataStack.shared.save()
