@@ -12,7 +12,7 @@ import CoreData
 class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var betterProfessorController: BetterProfessorController?
-    var student: StudentRepresentation?
+    var student: Student?
 
     
     @IBOutlet weak var studentName: UITextField!

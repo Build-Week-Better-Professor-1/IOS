@@ -24,9 +24,30 @@ class BestProfessorControllerTest: XCTestCase {
         XCTAssertEqual(betterProfessorController.studentRep.count, 1)
     }
     
-    func testUpdateStudent() {
+    func testMakingStudent() {
         let betterProfessorController = BetterProfessorController()
-        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "Lydia")
+        let dashBoard = DashboardTableViewController()
+        
+        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTg4MjA0NDk2LCJleHAiOjE1ODgyOTA4OTZ9.dc4JFq7JTd0fP-PATjpwt-NBg5C8yWgVJP7ZU_cYFxw")
+        sleep(5)
+        
+        let expectation = self.expectation(description: "Waiting to fetch students")
+        betterProfessorController.fetchStudent() { error in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 2)
+        
+        
+        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
+        betterProfessorController.delete(student: student!)
+    }
+    
+    
+    func testDeleteStudent() {
+        let betterProfessorController = BetterProfessorController()
+        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTg4MjA0NDk2LCJleHAiOjE1ODgyOTA4OTZ9.dc4JFq7JTd0fP-PATjpwt-NBg5C8yWgVJP7ZU_cYFxw")
         sleep(5)
         
         let expectation = self.expectation(description: "Waiting to fetch students")
@@ -36,12 +57,20 @@ class BestProfessorControllerTest: XCTestCase {
         }
         wait(for: [expectation], timeout: 5)
         XCTAssertEqual(betterProfessorController.studentRep.count, 2)
+        
+        let dashBoard = DashboardTableViewController()
+        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
+        
+        betterProfessorController.delete(student: student!)
+        sleep(5)
+        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 1)
     }
     
-    
-    func testDeleteStudent() {
+    func testUpdateStudent() {
         let betterProfessorController = BetterProfessorController()
-        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "Lydia")
+        let dashBoard = DashboardTableViewController()
+        
+        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTg4MjA0NDk2LCJleHAiOjE1ODgyOTA4OTZ9.dc4JFq7JTd0fP-PATjpwt-NBg5C8yWgVJP7ZU_cYFxw")
         sleep(5)
         
         let expectation = self.expectation(description: "Waiting to fetch students")
@@ -50,15 +79,13 @@ class BestProfessorControllerTest: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(betterProfessorController.studentRep.count, 1)
+        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 2)
         
-        let dashBoard = DashboardTableViewController()
-        let student = dashBoard.fetchedResultsController.fetchedObjects?[0]
-        //let expectation2 = self.expectation(description: "Waiting to Delete Students")
+        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
+        betterProfessorController.updateStudent(student: student!, name: "Lydia Zhang", email: "Lydia")
+        
+        XCTAssertEqual(student?.name, "Lydia Zhang")
         betterProfessorController.delete(student: student!)
-        
-        betterProfessorController.fetchStudent()
-        sleep(5)
-        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 0)
     }
+    
 }

@@ -98,7 +98,7 @@ class DashboardTableViewController: UITableViewController {
             guard let showStudentVC = segue.destination as? EditStudentInfoViewController,
                 let index = tableView.indexPathForSelectedRow else {return}
             showStudentVC.betterProfessorController = betterProfessorController
-            showStudentVC.student = betterProfessorController.studentRep[index.row]
+            showStudentVC.student = fetchedResultsController.fetchedObjects?[index.row]
             
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}

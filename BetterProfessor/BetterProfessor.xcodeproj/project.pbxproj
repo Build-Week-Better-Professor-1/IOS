@@ -24,6 +24,7 @@
 		AE4EC84A245A088F00CC88AD /* BetterProfessorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC849245A088F00CC88AD /* BetterProfessorUITests.swift */; };
 		AE4EC852245A0A8500CC88AD /* BestProfessorControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */; };
 		AE4EC858245A1FED00CC88AD /* BetterProfessor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC856245A1FED00CC88AD /* BetterProfessor.xcdatamodeld */; };
+		AE4EC85E245A5D6E00CC88AD /* DashBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */; };
 		AEC8622F24578E8300775FD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8622E24578E8300775FD8 /* CoreDataStack.swift */; };
 		AEC8629524587B6600775FD8 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629424587B6600775FD8 /* APIController.swift */; };
 		AEC8629B24588FA700775FD8 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */; };
@@ -71,6 +72,7 @@
 		AE4EC84B245A088F00CC88AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestProfessorControllerTest.swift; sourceTree = "<group>"; };
 		AE4EC857245A1FED00CC88AD /* BetterProfessor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterProfessor.xcdatamodel; sourceTree = "<group>"; };
+		AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardTest.swift; sourceTree = "<group>"; };
 		AEC8622E24578E8300775FD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		AEC8629424587B6600775FD8 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AEC8629A24588FA700775FD8 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		AE4EC8312459FFE600CC88AD /* BetterProfessorTests */ = {
 			isa = PBXGroup;
 			children = (
+				AE4EC85D245A5D6E00CC88AD /* DashBoardTest.swift */,
 				AE4EC851245A0A8500CC88AD /* BestProfessorControllerTest.swift */,
 				AE4EC83F245A02F900CC88AD /* CoreData.swift */,
 				AE4EC8342459FFE600CC88AD /* Info.plist */,
@@ -363,6 +366,7 @@
 			files = (
 				AE4EC840245A02F900CC88AD /* CoreData.swift in Sources */,
 				AE4EC852245A0A8500CC88AD /* BestProfessorControllerTest.swift in Sources */,
+				AE4EC85E245A5D6E00CC88AD /* DashBoardTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

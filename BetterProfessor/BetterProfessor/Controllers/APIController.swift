@@ -68,7 +68,7 @@ class APIController {
                 self.bearer = result
                 completion(nil)
             } catch {
-                NSLog("1")
+                NSLog("Error sign in")
             }
         }.resume()
         

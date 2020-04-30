@@ -16,26 +16,126 @@ class BetterProfessorUITests: XCTestCase {
         app.launchArguments = ["UITesting"]
         app.launch()
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    private var userNameTextField: XCUIElement {
+        return app.textFields["Username:"]
     }
-
-    func testExample() {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    private var passwordTextField: XCUIElement {
+        return app.secureTextFields["Password:"]
     }
-
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+    private var loginButton: XCUIElement {
+        return app.buttons["LoginButton"]
+    }
+    private var addButton1: XCUIElement {
+        return app.buttons["DashboardTableViewController.AddButton"]
+    }
+    
+    func testLogin() {
+        
+        userNameTextField.tap()
+        userNameTextField.typeText("Lambda")
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("12345")
+        
+        app.buttons.containing(.staticText, identifier:"Sign In").element.tap()
+        sleep(10)
+        let baseCell = app.tables.staticTexts["Base"]
+        XCTAssert(baseCell.exists)
+    }
+    
+    private var studentName: XCUIElement {
+        return app.textFields["Student Name:"]
+    }
+    private var studentEmail: XCUIElement {
+        return app.textFields["Student Email:"]
+    }
+    func testAddStudent() {
+        userNameTextField.tap()
+        userNameTextField.typeText("Lambda")
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("12345")
+        
+        app.buttons.containing(.staticText, identifier:"Sign In").element.tap()
+        sleep(10)
+        
+        app.navigationBars["Students"].buttons["Add"].tap()
+        studentName.tap()
+        studentName.typeText("lydia")
+        
+        studentEmail.tap()
+        studentEmail.typeText("lydia")
+        
+        app.navigationBars["New Student Info"].buttons["Save"].tap()
+        sleep(3)
+        let lydiaCell = app.tables.staticTexts["lydia"]
+        XCTAssert(lydiaCell.exists)
+    }
+    
+    func testDeleteStudent() {
+        
+        userNameTextField.tap()
+        userNameTextField.typeText("Lambda")
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("12345")
+        
+        app.buttons.containing(.staticText, identifier:"Sign In").element.tap()
+        sleep(10)
+        
+        app.navigationBars["Students"].buttons["Add"].tap()
+        studentName.tap()
+        studentName.typeText("lydia")
+        
+        studentEmail.tap()
+        studentEmail.typeText("lydia")
+        
+        app.navigationBars["New Student Info"].buttons["Save"].tap()
+        sleep(3)
+        let lydiaCell = app.tables.staticTexts["lydia"]
+        XCTAssert(lydiaCell.exists)
+        sleep(1)
+        lydiaCell.swipeLeft()
+        app.tables/*@START_MENU_TOKEN@*/.buttons["trailing0"]/*[[".cells",".buttons[\"Delete\"]",".buttons[\"trailing0\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        sleep(2)
+        XCTAssertFalse(lydiaCell.exists)
+        
+    }
+    
+    func testUpdateStudent() {
+        
+        userNameTextField.tap()
+        userNameTextField.typeText("Lambda")
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("12345")
+        
+        app.buttons.containing(.staticText, identifier:"Sign In").element.tap()
+        sleep(10)
+        
+        app.navigationBars["Students"].buttons["Add"].tap()
+        studentName.tap()
+        studentName.typeText("lydia")
+        
+        studentEmail.tap()
+        studentEmail.typeText("lydia")
+        
+        app.navigationBars["New Student Info"].buttons["Save"].tap()
+        sleep(3)
+        let lydiaCell = app.tables.staticTexts["lydia"]
+        XCTAssert(lydiaCell.exists)
+        sleep(1)
+        
+//        let app = XCUIApplication()
+//        let lydiaStaticText = app.tables/*@START_MENU_TOKEN@*/.staticTexts["lydia"]/*[[".cells.staticTexts[\"lydia\"]",".staticTexts[\"lydia\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+//        lydiaStaticText.tap()
+//        
+//        let studentsButton = app.navigationBars["Student Info"].buttons["Students"]
+//        studentsButton.tap()
+//        lydiaStaticText.tap()
+//        app.textFields["Student Name:"].swipeLeft()
+        
     }
 }
