@@ -23,6 +23,7 @@ class BetterProfessorController {
         put(student: student)
         do {
             try CoreDataStack.shared.save()
+            
         } catch {
             NSLog("Saving new student failed")
         }

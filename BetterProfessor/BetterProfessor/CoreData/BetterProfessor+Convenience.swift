@@ -42,6 +42,7 @@ extension Professor {
 extension Task {
     var taskRepresentation: TaskRepresentation? {
         guard let title = title,
+            let id = id,
             let note = note,
             let dueDate = dueDate,
             let student = student else {return nil}

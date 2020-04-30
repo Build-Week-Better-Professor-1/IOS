@@ -14,7 +14,6 @@ class DashboardTableViewController: UITableViewController {
     lazy var fetchedResultsController: NSFetchedResultsController<Student> = {
         let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        //fetchRequest.predicate = NSPredicate(format: "professor IN %@", "\(APIController().bearer!)")
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: context,

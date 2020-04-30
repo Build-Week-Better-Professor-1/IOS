@@ -17,7 +17,6 @@ class TaskController {
     let baseURL = URL(string: "https://betterprofessortasktest-2cfc9.firebaseio.com/")!
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
-    var apiController: APIController?
 
     init() {
 
@@ -62,7 +61,7 @@ class TaskController {
               do {
                   try CoreDataStack.shared.save()
               } catch {
-                  NSLog("Saving new student failed")
+                  NSLog("Saving new task failed")
               }
           }
 
@@ -108,7 +107,8 @@ class TaskController {
     }
 
     private func put(task: Task, completion: @escaping ((Error?) -> Void) = { _ in }) {
-        let requestURL = baseUrl.appendingPathComponent("").appendingPathExtension("json")
+        let id = task.id ?? UUID().uuidString
+        let requestURL = baseUrl.appendingPathComponent(id).appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 
@@ -131,13 +131,11 @@ class TaskController {
 
     func updateTasks(with representations: [TaskRepresentation]) {
 
-        guard let apiController = apiController else {return}
-
         let taskWithIDs = representations.filter({$0.id != nil })
-        let taskWithID = taskWithIDs.filter({$0.student == "\(apiController.bearer!)"})
+        //let taskWithID = taskWithIDs.filter({$0.student == "\()"})
         
-        let idToFetch = taskWithID.compactMap({$0.id})
-        let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, taskWithID))
+        let idToFetch = taskWithIDs.compactMap({$0.id})
+        let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, taskWithIDs))
         var tasksToCreate = repByID
 
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()

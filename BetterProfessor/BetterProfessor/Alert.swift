@@ -14,6 +14,6 @@ class Alert {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         vc.present(alert, animated: true)
-        vc.dismiss(animated: true, completion: nil)
+        
     }
 }
