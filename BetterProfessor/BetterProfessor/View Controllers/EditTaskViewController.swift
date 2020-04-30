@@ -2,7 +2,7 @@
 //  EditTaskViewController.swift
 //  BetterProfessor
 //
-//  Created by Chris Dobek on 4/30/20.
+//  Created by Lydia Zhang on 4/30/20.
 //  Copyright © 2020 Chris Dobek. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 class EditTaskViewController: UIViewController {
 
-    var task: Task?
+     var task: Task?
      var wasEdited = false
      @IBOutlet weak var taskTitleTextField: UITextField!
      @IBOutlet weak var taskDueDate: UITextField!
@@ -55,13 +55,15 @@ class EditTaskViewController: UIViewController {
       
      // MARK: - Actions
      private func updateViews() {
-       taskTitleTextField.text = task?.title
-       taskTitleTextField.isUserInteractionEnabled = isEditing
-        
-       taskNoteTextView.text = task?.note
-       taskNoteTextView.isUserInteractionEnabled = isEditing
-        
-       taskDueDate.text = task?.dueDate
-       taskDueDate.isUserInteractionEnabled = isEditing
+        if isViewLoaded{
+            taskTitleTextField.text = task?.title
+            taskTitleTextField.isUserInteractionEnabled = isEditing
+             
+            taskNoteTextView.text = task?.note
+            taskNoteTextView.isUserInteractionEnabled = isEditing
+             
+            taskDueDate.text = task?.dueDate
+            taskDueDate.isUserInteractionEnabled = isEditing
+        }
      }
 }

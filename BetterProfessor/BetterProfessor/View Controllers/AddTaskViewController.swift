@@ -28,21 +28,15 @@ class AddTaskViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         guard let title = taskTitleTextField.text,
             !title.isEmpty,
+            let note = taskNoteTextField.text,
+            !note.isEmpty,
             let date = taskDueDateTextField.text,
             !date.isEmpty,
             let student = student else { return }
         
         
-        
-        let task = Task(title: title, note: taskNoteTextField.text, dueDate: date, student: student)
-            taskController?.sendTaskToServer(task: task)
-            do {
-                try CoreDataStack.shared.mainContext.save()
-            } catch {
-                NSLog("Failed to save coredata context: \(error)")
-                return
-            }
+            taskController?.createTask(title: title, note: note, dueDate: date, student: student)
 
-            navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         }
     }
