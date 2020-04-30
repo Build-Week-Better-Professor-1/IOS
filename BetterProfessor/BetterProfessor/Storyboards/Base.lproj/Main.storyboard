@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -154,7 +154,7 @@
                     <navigationItem key="navigationItem" title="Student Info" id="typ-eP-Dkr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pAu-a5-nxV">
                             <connections>
-                                <segue destination="XT0-vz-Doc" kind="show" id="94e-de-SjU"/>
+                                <segue destination="XT0-vz-Doc" kind="show" identifier="AddTaskSegue" id="1oo-Cj-RZk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -171,7 +171,7 @@
         <!--Reminder Details-->
         <scene sceneID="7zO-Yr-5oo">
             <objects>
-                <viewController id="XT0-vz-Doc" customClass="EditTaskViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XT0-vz-Doc" customClass="AddTaskViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZOb-NA-BFX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,16 +225,18 @@
                         <viewLayoutGuide key="safeArea" id="wGJ-60-dFW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder Details" id="FWJ-lP-2Yv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DSQ-Nn-3Am">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MEe-8m-bNm">
                             <connections>
-                                <action selector="save:" destination="XT0-vz-Doc" id="qu8-1A-1zW"/>
+                                <action selector="save:" destination="XT0-vz-Doc" id="sxf-cj-yOf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="taskDueDate" destination="TJv-eS-4ur" id="HFo-cc-pM6"/>
+                        <outlet property="taskDueDateTextField" destination="TJv-eS-4ur" id="5UF-aO-SQt"/>
+                        <outlet property="taskNoteTextField" destination="vvt-mM-RFu" id="8iv-Bq-a6k"/>
                         <outlet property="taskNoteTextView" destination="vvt-mM-RFu" id="exh-x1-rRd"/>
-                        <outlet property="taskTitleTextField" destination="rJd-a4-yNy" id="Oq1-j1-I4G"/>
+                        <outlet property="taskTitleTextField" destination="rJd-a4-yNy" id="eKI-q7-aJa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7uF-Rv-g88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
