@@ -56,8 +56,8 @@ class TaskController {
         }.resume()
     }
     
-    func createTask(title: String, note: String, dueDate: String) {
-        let task = Task(title: title, note: note, dueDate: dueDate)
+    func createTask(title: String, note: String, dueDate: String, student: String) {
+        let task = Task(title: title, note: note, dueDate: dueDate, student: student)
               put(task: task)
               do {
                   try CoreDataStack.shared.save()
@@ -77,7 +77,6 @@ class TaskController {
             NSLog("Saving edited student failed")
         }
     }
-
     func delete(task: Task) {
         CoreDataStack.shared.mainContext.delete(task)
         do {
@@ -135,7 +134,7 @@ class TaskController {
         guard let apiController = apiController else {return}
 
         let taskWithIDs = representations.filter({$0.id != nil })
-        let taskWithID = taskWithIDs.filter({$0.id == "\(apiController.bearer!)"})
+        let taskWithID = taskWithIDs.filter({$0.student == "\(apiController.bearer!)"})
         
         let idToFetch = taskWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, taskWithID))

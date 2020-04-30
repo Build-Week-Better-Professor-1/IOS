@@ -15,6 +15,7 @@ class EditTaskViewController: UIViewController {
      @IBOutlet weak var taskTitleTextField: UITextField!
      @IBOutlet weak var taskDueDate: UITextField!
      @IBOutlet weak var taskNoteTextView: UITextView!
+    
      override func viewDidLoad() {
        super.viewDidLoad()
        navigationItem.rightBarButtonItem = editButtonItem

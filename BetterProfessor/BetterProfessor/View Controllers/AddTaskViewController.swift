@@ -12,8 +12,7 @@ class AddTaskViewController: UIViewController {
     
     //MARK: - Properties
     var taskController: TaskController?
-    var token: String?
-    
+    var student: String?
     //MARK: - Outlets
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var taskDueDateTextField: UITextField!
@@ -30,9 +29,13 @@ class AddTaskViewController: UIViewController {
         guard let title = taskTitleTextField.text,
             !title.isEmpty,
             let date = taskDueDateTextField.text,
-            !date.isEmpty else { return }
-                
-            taskController?.createTask(title: <#T##String#>, note: <#T##String#>, dueDate: <#T##String#>)
+            !date.isEmpty,
+            let student = student else { return }
+        
+        
+        
+        let task = Task(title: title, note: taskNoteTextField.text, dueDate: date, student: student)
+            taskController?.sendTaskToServer(task: task)
             do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {
