@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LmE-sk-o8u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -82,7 +82,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qqC-r6-YTP">
-                                <rect key="frame" x="20" y="274" width="374" height="588"/>
+                                <rect key="frame" x="20" y="350" width="374" height="512"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" textLabel="aLZ-xK-AmM" style="IBUITableViewCellStyleDefault" id="zI1-nb-wfw">
@@ -107,6 +107,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-m2-rnh">
+                                <rect key="frame" x="20" y="274" width="170" height="36"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="weT-Sp-dhs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Edit Student Info">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="editStudentInfo:" destination="0iv-3l-rTy" eventType="touchUpInside" id="ZYp-xY-NBl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzH-TB-FoS">
+                                <rect key="frame" x="224" y="274" width="170" height="36"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="9ay-ci-ZNR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Save Student Info"/>
+                                <connections>
+                                    <action selector="saveStudentInfo:" destination="0iv-3l-rTy" eventType="touchUpInside" id="Cfj-c4-jmM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -116,16 +143,16 @@
                             <constraint firstItem="qqC-r6-YTP" firstAttribute="leading" secondItem="5pe-eb-9ze" secondAttribute="leading" constant="20" id="MsK-bw-Jx7"/>
                             <constraint firstItem="Vg9-Ia-4eZ" firstAttribute="top" secondItem="5pe-eb-9ze" secondAttribute="top" constant="20" id="SaZ-Y3-ozW"/>
                             <constraint firstItem="Vg9-Ia-4eZ" firstAttribute="leading" secondItem="5pe-eb-9ze" secondAttribute="leading" constant="20" id="dz4-ce-QZd"/>
-                            <constraint firstItem="qqC-r6-YTP" firstAttribute="top" secondItem="Vg9-Ia-4eZ" secondAttribute="bottom" constant="30" id="gdX-Bc-xiy"/>
+                            <constraint firstItem="qqC-r6-YTP" firstAttribute="top" secondItem="fo4-m2-rnh" secondAttribute="bottom" constant="40" id="jCY-3l-SeX"/>
+                            <constraint firstItem="5pe-eb-9ze" firstAttribute="trailing" secondItem="BzH-TB-FoS" secondAttribute="trailing" constant="20" id="jSV-Bm-iHO"/>
+                            <constraint firstItem="fo4-m2-rnh" firstAttribute="top" secondItem="Vg9-Ia-4eZ" secondAttribute="bottom" constant="30" id="kTZ-mS-9Yu"/>
+                            <constraint firstItem="BzH-TB-FoS" firstAttribute="top" secondItem="Vg9-Ia-4eZ" secondAttribute="bottom" constant="30" id="v2A-ra-sru"/>
+                            <constraint firstItem="fo4-m2-rnh" firstAttribute="leading" secondItem="5pe-eb-9ze" secondAttribute="leading" constant="20" id="vlG-18-gR4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5pe-eb-9ze"/>
                     </view>
                     <navigationItem key="navigationItem" title="Student Info" id="typ-eP-Dkr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pAu-a5-nxV">
-                            <connections>
-                                <segue destination="XT0-vz-Doc" kind="show" identifier="AddTaskSegue" id="9mn-ni-n6x"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pAu-a5-nxV"/>
                     </navigationItem>
                     <connections>
                         <outlet property="studentEmail" destination="wVi-A4-s68" id="BKj-bp-umc"/>
@@ -135,12 +162,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VX0-xZ-2wT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="246"/>
+            <point key="canvasLocation" x="2656.521739130435" y="245.75892857142856"/>
         </scene>
         <!--Reminder Details-->
         <scene sceneID="7zO-Yr-5oo">
             <objects>
-                <viewController id="XT0-vz-Doc" customClass="TaskDetailViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XT0-vz-Doc" customClass="EditTaskViewController" customModule="BetterProfessor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZOb-NA-BFX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +221,7 @@
                         <viewLayoutGuide key="safeArea" id="wGJ-60-dFW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder Details" id="FWJ-lP-2Yv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DSQ-Nn-3Am">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DSQ-Nn-3Am">
                             <connections>
                                 <action selector="save:" destination="XT0-vz-Doc" id="qu8-1A-1zW"/>
                             </connections>

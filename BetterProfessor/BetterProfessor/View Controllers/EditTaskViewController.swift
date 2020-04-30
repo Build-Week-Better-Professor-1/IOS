@@ -2,7 +2,7 @@
 //  EditTaskViewController.swift
 //  BetterProfessor
 //
-//  Created by Chris Dobek on 4/29/20.
+//  Created by Lydia Zhang on 4/29/20.
 //  Copyright © 2020 Chris Dobek. All rights reserved.
 //
 
@@ -10,7 +10,6 @@ import UIKit
 
 class EditTaskViewController: UIViewController {
     
-    //MARK: - Properties
     var task: Task?
     var wasEdited = false
     
@@ -72,4 +71,6 @@ class EditTaskViewController: UIViewController {
         taskDueDate.text = task?.dueDate
         taskDueDate.isUserInteractionEnabled = isEditing
     }
-    }
+
+
+}

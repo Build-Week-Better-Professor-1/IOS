@@ -27,10 +27,10 @@ enum NetworkError: Error {
 
 class APIController {    
     private let baseUrl = URL(string: "https://betterprofessorapp.herokuapp.com/api")!
-    
+    var bearer: String?
     // create function for sign in
-    var bearer: Bearer?
-    func signIn(with user: Professor,completion: @escaping (Error?) -> ()) {
+    func signIn(with user: Professor,completion: @escaping (String?,Error?) -> ())  {
+
         let signInURL = baseUrl.appendingPathComponent("auth/login")
         
         var request = URLRequest(url: signInURL)
@@ -45,13 +45,13 @@ class APIController {
             request.httpBody = jsonData
         } catch {
             NSLog("Encode error in sign in")
-            completion(error)
+            completion(nil,error)
             return
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(error)
+                completion(nil,error)
                 return
             }
             
@@ -60,18 +60,18 @@ class APIController {
             }
             
             guard let data = data else {
-                completion(NSError(domain: "Data not found", code: 99, userInfo: nil))
+                completion(nil,NSError(domain: "Data not found", code: 99, userInfo: nil))
                 return
             }
             do {
                 let result = try JSONDecoder().decode(Bearer.self, from: data)
-                self.bearer = result
-                completion(nil)
+                self.bearer = result.email
+                completion(result.email,nil)
+                
             } catch {
-                NSLog("1")
+                NSLog("Error sign in")
             }
         }.resume()
-        
     }
     
     func signUp(with user: Professor, completion: @escaping (Error?) -> ()) {

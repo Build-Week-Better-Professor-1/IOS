@@ -11,10 +11,10 @@ import CoreData
 
 class DashboardTableViewController: UITableViewController {
     
-    // MARK: -Properties
     lazy var fetchedResultsController: NSFetchedResultsController<Student> = {
         let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        //fetchRequest.predicate = NSPredicate(format: "professor IN %@", "\(APIController().bearer!)")
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: context,
@@ -24,15 +24,17 @@ class DashboardTableViewController: UITableViewController {
         try! frc.performFetch()
         return frc
     }()
+    // MARK: -Properties
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        betterProfessorController.fetchStudent()
+        self.tableView.reloadData()
     }
-    
-    var students: [Student] = []
+    var token: String?
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -41,24 +43,17 @@ class DashboardTableViewController: UITableViewController {
         if bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
         } else {
-            betterProfessorController.fetchStudent() {result in
-                let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
-                let context = CoreDataStack.shared.mainContext
-                
-                context.perform {
-                    do {
-                        self.students = try context.fetch(fetchRequest)
-                    } catch {
-                        NSLog("Error fetching student in Dashboard VC: \(error)")
-                    }
-                }
+            betterProfessorController.token = apiController.bearer
+            betterProfessorController.fetchStudent() { error in
+                guard error == nil else {return}
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
+            
         }
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,6 +70,7 @@ class DashboardTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
         cell.textLabel?.text = fetchedResultsController.fetchedObjects?[indexPath.row].name
 
+        //cell.textLabel?.text = betterProfessorController.studentRep[indexPath.row].name
 
         return cell
     }
@@ -83,10 +79,11 @@ class DashboardTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let student = fetchedResultsController.object(at: indexPath)
             
-            betterProfessorController.delete(student: student)
-
+            let studentFR = fetchedResultsController.object(at: indexPath)
+            
+            betterProfessorController.delete(student: studentFR)
+            
         }
     }
     
@@ -98,12 +95,11 @@ class DashboardTableViewController: UITableViewController {
             guard let showStudentVC = segue.destination as? EditStudentInfoViewController,
                 let index = tableView.indexPathForSelectedRow else {return}
             showStudentVC.betterProfessorController = betterProfessorController
-            showStudentVC.student = betterProfessorController.studentRep[index.row]
+            showStudentVC.student = fetchedResultsController.fetchedObjects?[index.row]
             
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}
             addStudentVC.betterProfessorController = betterProfessorController
-            addStudentVC.apiController = apiController
             
         case "LoginModalSegue":
             guard let loginVC = segue.destination as? LoginViewController else {return}

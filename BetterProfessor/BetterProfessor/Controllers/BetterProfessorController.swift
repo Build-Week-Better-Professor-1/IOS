@@ -17,8 +17,7 @@ class BetterProfessorController {
         
         fetchStudent()
     }
-    var apiController: APIController?
-    
+    var token: String?
     func createStudent(name: String, email: String, professor: String) {
         let student = Student(name: name, email: email, professor: professor)
         put(student: student)
@@ -88,7 +87,7 @@ class BetterProfessorController {
             completion(nil)
         }.resume()
     }
-    var students: [Student] = []
+    //var students: [Student] = []
     var studentRep: [StudentRepresentation] = []
     func fetchStudent(completion: @escaping ((Error?) -> Void) = { _ in }) {
         let requestURL = baseUrl.appendingPathExtension("json")
@@ -121,11 +120,17 @@ class BetterProfessorController {
     }
     
     func updateStudents(with representations: [StudentRepresentation]) {
-        
-        guard let apiController = apiController else {return}
-        let studentWithIDs = representations.filter({$0.id != nil })
-        let studentWithID = studentWithIDs.filter({$0.professor == "\(apiController.bearer!.token)"})
-        
+        var tokenRep: [StudentRepresentation] = []
+        guard let token = token else {return}
+        for rep in representations {
+            //let x = rep.professor
+            if rep.professor == token {
+                tokenRep.append(rep)
+            }
+        }
+        let studentWithIDs = tokenRep.filter({$0.id != nil })
+        let studentWithID = studentWithIDs.filter({$0.professor == "\(token)"})
+            
         let idToFetch = studentWithID.compactMap({$0.id})
         let repByID = Dictionary(uniqueKeysWithValues: zip(idToFetch, studentWithID))
         var studentsToCreate = repByID
@@ -133,6 +138,7 @@ class BetterProfessorController {
         
         let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id IN %@", idToFetch)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let context = CoreDataStack.shared.container.newBackgroundContext()
         
         context.performAndWait {

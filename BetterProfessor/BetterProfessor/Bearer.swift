@@ -6,5 +6,5 @@
 import Foundation
 
 class Bearer: Codable {
-    var token: String
+    var email: String
 }
