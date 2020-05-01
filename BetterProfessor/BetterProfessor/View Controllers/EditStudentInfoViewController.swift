@@ -29,6 +29,20 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
         return frc
     }()
     
+    @objc func alertAdd() {
+        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Success", message: "This task has been added to your list successfully", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
+    @objc func alertChange() {
+        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Success", message: "Change has been made on this task", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
     
     var wasEdited = false
     var betterProfessorController: BetterProfessorController?
@@ -84,8 +98,9 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(alertAdd), name: NSNotification.Name("TaskAdd"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(alertChange), name: NSNotification.Name("TaskChange"), object: nil)
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -96,6 +111,8 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
         studentEmail.isUserInteractionEnabled = true
         navigationItem.setHidesBackButton(editing, animated: true)
     }
+    
+    //do not reload TVdata here!
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if wasEdited {
