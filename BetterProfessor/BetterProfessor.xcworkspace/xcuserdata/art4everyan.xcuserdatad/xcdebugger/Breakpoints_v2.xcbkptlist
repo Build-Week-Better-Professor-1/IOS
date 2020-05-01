@@ -3,4 +3,54 @@
    uuid = "82130B1F-2F17-4E32-B15E-4F6FDD43930C"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F660EDD-6231-4DA7-B176-E751616BFB23"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BetterProfessor/View Controllers/DashboardTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8F660EDD-6231-4DA7-B176-E751616BFB23 - ab3c6ca150d3aa93"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BetterProfessor.DashboardTableViewController.viewDidAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "BetterProfessor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/art4everyan/Desktop/IOS/BetterProfessor/BetterProfessor/View%20Controllers/DashboardTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "8F660EDD-6231-4DA7-B176-E751616BFB23 - 348ca90baa18920f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;__C.NSFetchedResultsController&lt;BetterProfessor.Student&gt;&gt; in closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BetterProfessor.DashboardTableViewController.viewDidAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "BetterProfessor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/art4everyan/Desktop/IOS/BetterProfessor/BetterProfessor/View%20Controllers/DashboardTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "109">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
