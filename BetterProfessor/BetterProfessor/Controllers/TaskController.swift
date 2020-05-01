@@ -63,6 +63,7 @@ class TaskController {
               } catch {
                   NSLog("Saving new task failed")
               }
+        NotificationCenter.default.post(name: NSNotification.Name("TaskAdd"), object: self)
           }
 
     func updateTask(task: Task, title: String, note: String, taskDueDate: String) {
@@ -75,6 +76,7 @@ class TaskController {
         } catch {
             NSLog("Saving edited student failed")
         }
+        NotificationCenter.default.post(name: NSNotification.Name("TaskChange"), object: self)
     }
     func delete(task: Task) {
         CoreDataStack.shared.mainContext.delete(task)

@@ -224,7 +224,11 @@
                         <viewLayoutGuide key="safeArea" id="wGJ-60-dFW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder Details" id="FWJ-lP-2Yv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MEe-8m-bNm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MEe-8m-bNm">
+                            <connections>
+                                <action selector="save:" destination="XT0-vz-Doc" id="q3S-8d-BJy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="taskDueDateTextField" destination="TJv-eS-4ur" id="5UF-aO-SQt"/>

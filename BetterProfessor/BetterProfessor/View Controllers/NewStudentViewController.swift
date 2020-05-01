@@ -26,10 +26,8 @@ class NewStudentViewController: UIViewController {
 
         guard let studentName = studentNameTextField.text, !studentName.isEmpty,
             let studentEmail = studentEmailTextField.text, !studentEmail.isEmpty else {return}
-        betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(betterProfessorController!.token!)")
-        Alert.showBasic(title: "Student Added", message: "Please add task!", vc: NewStudentViewController())
-        
-        navigationController?.popViewController(animated: true)
+
+        self.betterProfessorController?.createStudent(name: studentName, email: studentEmail,professor: "\(self.betterProfessorController!.token!)")
     }
 
 }

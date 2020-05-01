@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 
-
 class BetterProfessorController {
     let baseUrl = URL(string: "https://betterprofessortest.firebaseio.com/")!
+    
     init() {
 
         fetchStudent()
@@ -27,6 +27,7 @@ class BetterProfessorController {
         } catch {
             NSLog("Saving new student failed")
         }
+        NotificationCenter.default.post(name: NSNotification.Name("StudentAdd"), object: self)
     }
     func updateStudent(student: Student, name: String, email: String) {
         student.name = name
@@ -37,6 +38,7 @@ class BetterProfessorController {
         } catch {
             NSLog("Saving edited student failed")
         }
+        NotificationCenter.default.post(name: NSNotification.Name("StudentChange"), object: self)
     }
     func delete(student: Student) {
         CoreDataStack.shared.mainContext.delete(student)

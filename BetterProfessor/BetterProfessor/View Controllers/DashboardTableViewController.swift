@@ -13,11 +13,26 @@ class DashboardTableViewController: UITableViewController {
 
     var fetchedResultsController: NSFetchedResultsController<Student>?
     // MARK: - Properties
+    @objc func alertAdd() {
+        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Success", message: "This student has been added to your list successfully", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
+    @objc func alertChange() {
+        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Success", message: "Change has been made on this student", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         betterProfessorController.fetchStudent()
-        self.tableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(alertAdd), name: NSNotification.Name("StudentAdd"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(alertChange), name: NSNotification.Name("StudentChange"), object: nil)
     }
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
@@ -81,7 +96,10 @@ class DashboardTableViewController: UITableViewController {
             let studentFR = fetchedResultsController?.fetchedObjects?[indexPath.row]
 
             betterProfessorController.delete(student: studentFR!)
-            
+            let alert = UIAlertController(title: "Success", message: "Student is deleted", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true)
 
         }
     }
