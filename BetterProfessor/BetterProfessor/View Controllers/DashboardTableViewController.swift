@@ -17,7 +17,6 @@ class DashboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         betterProfessorController.fetchStudent()
-        self.tableView.reloadData()
     }
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
