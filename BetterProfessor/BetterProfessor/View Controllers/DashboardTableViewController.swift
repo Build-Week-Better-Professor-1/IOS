@@ -11,30 +11,14 @@ import CoreData
 
 class DashboardTableViewController: UITableViewController {
 
-    lazy var fetchedResultsController: NSFetchedResultsController<Student> = {
-        let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        let context = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                             managedObjectContext: context,
-                                             sectionNameKeyPath: nil,
-                                             cacheName: nil)
-        frc.delegate = self
-        do {
-            try frc.performFetch()
-        } catch {
-            NSLog("Error doing frc fetch")
-        }
-        return frc
-    }()
+    var fetchedResultsController: NSFetchedResultsController<Student>?
     // MARK: - Properties
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         betterProfessorController.fetchStudent()
         self.tableView.reloadData()
     }
-    var token: String?
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
 
@@ -43,38 +27,50 @@ class DashboardTableViewController: UITableViewController {
 
         // transition to login view if conditions require
         let bearer = apiController.bearer
-        if bearer == nil {
+        guard bearer != nil else {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
-        } else {
-            betterProfessorController.token = apiController.bearer
-            betterProfessorController.fetchStudent { error in
-                guard error == nil else {return}
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+            return
+        }
+        
+        betterProfessorController.token = apiController.bearer
+        betterProfessorController.fetchStudent { error in
+            guard error == nil else {return}
+            DispatchQueue.main.async {
+                
+                self.fetchedResultsController = {
+                    let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
+                    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+                    fetchRequest.predicate = NSPredicate(format:"professor == %@", bearer!)
+                    let context = CoreDataStack.shared.mainContext
+                    let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                         managedObjectContext: context,
+                                                         sectionNameKeyPath: nil,
+                                                         cacheName: nil)
+                    frc.delegate = self
+                    do {
+                        try frc.performFetch()
+                    } catch {
+                        NSLog("Error doing frc fetch")
+                    }
+                    return frc
+                } ()
+                self.tableView.reloadData()
             }
-
         }
     }
 
+
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+
+        return fetchedResultsController?.fetchedObjects?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
-        cell.textLabel?.text = fetchedResultsController.fetchedObjects?[indexPath.row].name
-
-        //cell.textLabel?.text = betterProfessorController.studentRep[indexPath.row].name
-
+        cell.textLabel?.text = fetchedResultsController?.fetchedObjects?[indexPath.row].name
+        
+        
         return cell
     }
 
@@ -82,9 +78,10 @@ class DashboardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 
-            let studentFR = fetchedResultsController.object(at: indexPath)
+            let studentFR = fetchedResultsController?.fetchedObjects?[indexPath.row]
 
-            betterProfessorController.delete(student: studentFR)
+            betterProfessorController.delete(student: studentFR!)
+            
 
         }
     }
@@ -97,7 +94,7 @@ class DashboardTableViewController: UITableViewController {
             guard let showStudentVC = segue.destination as? EditStudentInfoViewController,
                 let index = tableView.indexPathForSelectedRow else {return}
             showStudentVC.betterProfessorController = betterProfessorController
-            showStudentVC.student = fetchedResultsController.fetchedObjects?[index.row]
+            showStudentVC.student = fetchedResultsController?.fetchedObjects?[index.row]
 
         case "AddStudentSegue":
             guard let addStudentVC = segue.destination as? NewStudentViewController else {return}

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import BetterProfessor
 
 class BetterProfessorUITests: XCTestCase {
     var app: XCUIApplication!
@@ -40,7 +41,7 @@ class BetterProfessorUITests: XCTestCase {
 
         app.buttons.containing(.staticText, identifier: "Sign In").element.tap()
         sleep(10)
-        let baseCell = app.tables.staticTexts["Base"]
+        let baseCell = app.tables.staticTexts["112"]
         XCTAssert(baseCell.exists)
     }
 
@@ -130,19 +131,37 @@ class BetterProfessorUITests: XCTestCase {
 
         lydiaCell.tap()
         app.buttons["Edit Student Info"].tap()
-        app.textFields["Student Name:"].tap()
+        studentName.tap()
 
-        let deleteKey = app/*@START_MENU_TOKEN@*/.keys["delete"]/*[[".keyboards.keys[\"delete\"]",".keys[\"delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        deleteKey.tap()
-
-        let moreKey = app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"letters\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-        moreKey.tap()
-
-        let key = app/*@START_MENU_TOKEN@*/.keys["4"]/*[[".keyboards.keys[\"4\"]",".keys[\"4\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key.tap()
+        let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: 5)
+        
+        studentName.typeText(deleteString)
+        studentName.typeText("lydia4")
 
         app.buttons["Save Student Info"].tap()
         app.navigationBars["Student Info"].buttons["Students"].tap()
+        sleep(3)
+        let newLydiaCell = app.tables.staticTexts["lydia4"]
+        XCTAssert(newLydiaCell.exists)
 
+    }
+    
+    func testTaskCell() {
+        
+        userNameTextField.tap()
+        userNameTextField.typeText("Lambda")
+
+        passwordTextField.tap()
+        passwordTextField.typeText("12345")
+
+        app.buttons.containing(.staticText, identifier: "Sign In").element.tap()
+        sleep(10)
+        
+        let baseCell = app.tables.staticTexts["114"]
+        baseCell.tap()
+        sleep(2)
+        
+        
+        XCTAssertNotNil(app.tables.staticTexts["Test"])
     }
 }
