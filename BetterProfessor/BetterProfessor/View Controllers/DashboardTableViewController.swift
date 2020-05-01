@@ -13,10 +13,28 @@ class DashboardTableViewController: UITableViewController {
 
     var fetchedResultsController: NSFetchedResultsController<Student>?
     // MARK: - Properties
+    @objc func alertAdd() {
+        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Success", message: "This student has been added to your list successfully", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            //self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
+    @objc func alertChange() {
+        let alert = UIAlertController(title: "Success", message: "Change has been made on this student", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         betterProfessorController.fetchStudent()
+        NotificationCenter.default.addObserver(self, selector: #selector(alertAdd), name: NSNotification.Name("StudentAdd"), object: nil)
     }
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
