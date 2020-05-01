@@ -224,11 +224,7 @@
                         <viewLayoutGuide key="safeArea" id="wGJ-60-dFW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder Details" id="FWJ-lP-2Yv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MEe-8m-bNm">
-                            <connections>
-                                <action selector="save:" destination="XT0-vz-Doc" id="sxf-cj-yOf"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MEe-8m-bNm"/>
                     </navigationItem>
                     <connections>
                         <outlet property="taskDueDateTextField" destination="TJv-eS-4ur" id="5UF-aO-SQt"/>
@@ -278,11 +274,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHm-EH-6Pm">
+                                <rect key="frame" x="170" y="565" width="74" height="30"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveChange:" destination="BZ7-wI-qz9" eventType="touchUpInside" id="5ID-EN-bNw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5jN-Ig-DUV" firstAttribute="top" secondItem="cjM-nZ-tfh" secondAttribute="bottom" constant="20" id="47X-ig-JDe"/>
                             <constraint firstItem="Smx-WX-oZm" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="4CP-jv-PMZ"/>
+                            <constraint firstItem="sHm-EH-6Pm" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="170" id="5Xb-i8-lti"/>
                             <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="PDo-Aw-4SW" secondAttribute="trailing" constant="20" id="5dI-eN-RNs"/>
                             <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="cjM-nZ-tfh" secondAttribute="trailing" constant="343" id="7F3-HR-d74"/>
                             <constraint firstItem="cjM-nZ-tfh" firstAttribute="top" secondItem="PDo-Aw-4SW" secondAttribute="bottom" constant="20" id="8SJ-DU-tVn"/>
@@ -291,8 +299,10 @@
                             <constraint firstItem="PDo-Aw-4SW" firstAttribute="top" secondItem="Smx-WX-oZm" secondAttribute="bottom" constant="20" id="afM-vj-zQE"/>
                             <constraint firstItem="PDo-Aw-4SW" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="cmp-uh-YSR"/>
                             <constraint firstItem="Smx-WX-oZm" firstAttribute="top" secondItem="cra-Kb-1Su" secondAttribute="top" constant="30" id="d2u-ia-djr"/>
+                            <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="sHm-EH-6Pm" secondAttribute="trailing" constant="170" id="fnD-Na-8zk"/>
                             <constraint firstItem="cjM-nZ-tfh" firstAttribute="leading" secondItem="cra-Kb-1Su" secondAttribute="leading" constant="20" id="jMk-hI-RI6"/>
                             <constraint firstItem="cra-Kb-1Su" firstAttribute="trailing" secondItem="Smx-WX-oZm" secondAttribute="trailing" constant="20" id="taa-a8-OGO"/>
+                            <constraint firstItem="sHm-EH-6Pm" firstAttribute="top" secondItem="5jN-Ig-DUV" secondAttribute="bottom" constant="30" id="ycs-Nw-05C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cra-Kb-1Su"/>
                     </view>

@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-let baseUrl = URL(string: "https://betterprofessortest.firebaseio.com/")!
+
 
 class BetterProfessorController {
-
+    let baseUrl = URL(string: "https://betterprofessortest.firebaseio.com/")!
     init() {
 
         fetchStudent()
