@@ -96,7 +96,10 @@ class DashboardTableViewController: UITableViewController {
             let studentFR = fetchedResultsController?.fetchedObjects?[indexPath.row]
 
             betterProfessorController.delete(student: studentFR!)
-            
+            let alert = UIAlertController(title: "Success", message: "Student is deleted", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true)
 
         }
     }
