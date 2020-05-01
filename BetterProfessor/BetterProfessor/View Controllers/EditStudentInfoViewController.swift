@@ -140,7 +140,7 @@ class EditStudentInfoViewController: UIViewController, UITableViewDelegate, UITa
         case "ShowTaskSegue":
             guard let showTaskVC = segue.destination as? EditTaskViewController, let indexPath = tableView.indexPathForSelectedRow else {return}
             showTaskVC.task = fetchedResultsController.object(at: indexPath)
-            //showTaskVC.
+            showTaskVC.taskController = taskController
         default:
             break
         }

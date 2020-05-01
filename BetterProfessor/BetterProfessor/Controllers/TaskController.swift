@@ -26,7 +26,7 @@ class TaskController {
     var taskRep: [TaskRepresentation] = []
 
     func fetchTask(completion: @escaping ((Error?) -> Void) = { _ in }) {
-        let requestURL = baseUrl.appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathExtension("json")
 
         URLSession.shared.dataTask(with: requestURL) { data, _, error in
             if let error = error {
@@ -43,7 +43,7 @@ class TaskController {
 
             do {
                 self.taskRep = try JSONDecoder().decode([String: TaskRepresentation].self, from: data).map({$0.value})
-                //self.updateStudents(with: self.taskRep)
+                self.updateTasks(with: self.taskRep)
             } catch {
                 NSLog("Error decoding JSON data when fetching student: \(error)")
                 completion(error)
@@ -87,12 +87,8 @@ class TaskController {
     }
 
     func deleteTaskFromServer(task: Task, completion: @escaping ((Error?) -> Void) = { _ in }) {
-        guard let title = task.title else {
-            NSLog("ID is nil when trying to delete student from server")
-            completion(NSError())
-            return
-        }
-        let requestURL = baseUrl.appendingPathComponent(title).appendingPathExtension("json")
+        let id = task.id ?? UUID().uuidString
+        let requestURL = baseURL.appendingPathComponent(id).appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
 
@@ -108,7 +104,7 @@ class TaskController {
 
     private func put(task: Task, completion: @escaping ((Error?) -> Void) = { _ in }) {
         let id = task.id ?? UUID().uuidString
-        let requestURL = baseUrl.appendingPathComponent(id).appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathComponent(id).appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 

@@ -64,7 +64,9 @@ class APIController {
             do {
                 let result = try JSONDecoder().decode(Bearer.self, from: data)
                 self.bearer = result.email
-                completion(result.email, nil)
+                DispatchQueue.main.async {
+                    completion(result.email, nil)
+                }
 
             } catch {
                 NSLog("Error sign in")
