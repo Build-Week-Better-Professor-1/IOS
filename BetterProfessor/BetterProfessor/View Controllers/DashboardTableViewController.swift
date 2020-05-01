@@ -12,7 +12,11 @@ import CoreData
 class DashboardTableViewController: UITableViewController {
 
     lazy var fetchedResultsController: NSFetchedResultsController<Student> = {
+        
+        
+        
         let fetchRequest: NSFetchRequest<Student> = Student.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "professor == %@", "Lambda")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
@@ -34,7 +38,6 @@ class DashboardTableViewController: UITableViewController {
         betterProfessorController.fetchStudent()
         self.tableView.reloadData()
     }
-    var token: String?
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
 
@@ -43,19 +46,21 @@ class DashboardTableViewController: UITableViewController {
 
         // transition to login view if conditions require
         let bearer = apiController.bearer
-        if bearer == nil {
+        guard bearer != nil else {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
-        } else {
-            betterProfessorController.token = apiController.bearer
-            betterProfessorController.fetchStudent { error in
-                guard error == nil else {return}
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-
+            return
         }
+        
+        betterProfessorController.token = apiController.bearer
+        betterProfessorController.fetchStudent { error in
+            guard error == nil else {return}
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
     }
+    
 
     // MARK: - Table view data source
 
@@ -63,28 +68,29 @@ class DashboardTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        guard let fetchWithID = fetchedResultsController.fetchedObjects?.filter({$0.professor == apiController.bearer}) else {return 0}
+        return fetchWithID.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
-        cell.textLabel?.text = fetchedResultsController.fetchedObjects?[indexPath.row].name
-
-        //cell.textLabel?.text = betterProfessorController.studentRep[indexPath.row].name
-
+        guard let fetchWithID = fetchedResultsController.fetchedObjects?.filter({$0.professor == apiController.bearer}) else {return UITableViewCell()}
+        cell.textLabel?.text = fetchWithID[indexPath.row].name
+        
+        
         return cell
     }
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-
-            let studentFR = fetchedResultsController.object(at: indexPath)
+            guard let fetchWithID = fetchedResultsController.fetchedObjects?.filter({$0.professor == apiController.bearer}) else {return}
+            let studentFR = fetchWithID[indexPath.row]
 
             betterProfessorController.delete(student: studentFR)
+            
 
         }
     }
