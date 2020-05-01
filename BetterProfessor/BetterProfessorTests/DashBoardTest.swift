@@ -50,7 +50,7 @@ class DashBoardTest: XCTestCase {
         let numberOfRows = dash.tableView.numberOfRows(inSection: 0)
         XCTAssertEqual(numberOfRows, 2)
         let baseName = dash.fetchedResultsController.fetchedObjects?[0].name
-        XCTAssertEqual(baseName, "Base")
+        XCTAssertEqual(baseName, "112")
 
     }
 

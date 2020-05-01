@@ -27,7 +27,7 @@ class BestProfessorControllerTest: XCTestCase {
         let betterProfessorController = BetterProfessorController()
         let dashBoard = DashboardTableViewController()
 
-        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTg4MjA0NDk2LCJleHAiOjE1ODgyOTA4OTZ9.dc4JFq7JTd0fP-PATjpwt-NBg5C8yWgVJP7ZU_cYFxw")
+        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "Lambda")
         sleep(5)
 
         let expectation = self.expectation(description: "Waiting to fetch students")
@@ -44,7 +44,7 @@ class BestProfessorControllerTest: XCTestCase {
 
     func testDeleteStudent() {
         let betterProfessorController = BetterProfessorController()
-        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTg4MjA0NDk2LCJleHAiOjE1ODgyOTA4OTZ9.dc4JFq7JTd0fP-PATjpwt-NBg5C8yWgVJP7ZU_cYFxw")
+        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "Lambda")
         sleep(5)
 
         let expectation = self.expectation(description: "Waiting to fetch students")
@@ -67,7 +67,7 @@ class BestProfessorControllerTest: XCTestCase {
         let betterProfessorController = BetterProfessorController()
         let dashBoard = DashboardTableViewController()
 
-        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTg4MjA0NDk2LCJleHAiOjE1ODgyOTA4OTZ9.dc4JFq7JTd0fP-PATjpwt-NBg5C8yWgVJP7ZU_cYFxw")
+        betterProfessorController.createStudent(name: "Lydia", email: "Lydia", professor: "Lambda")
         sleep(5)
 
         let expectation = self.expectation(description: "Waiting to fetch students")
