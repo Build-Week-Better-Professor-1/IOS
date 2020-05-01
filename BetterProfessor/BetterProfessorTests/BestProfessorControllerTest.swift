@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import BetterProfessor
-
+//Some of these test needs pre set up object in firebase, if you cannot open my firebase, plase make your own firebase inside the controller and create objects whenever needed
 class BestProfessorControllerTest: XCTestCase {
 
     func testFetchStudent() {
@@ -36,9 +36,9 @@ class BestProfessorControllerTest: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 2)
+        XCTAssertEqual(dashBoard.fetchedResultsController?.fetchedObjects?.count, 2)
 
-        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
+        let student = dashBoard.fetchedResultsController?.fetchedObjects?[1]
         betterProfessorController.delete(student: student!)
     }
 
@@ -56,11 +56,11 @@ class BestProfessorControllerTest: XCTestCase {
         XCTAssertEqual(betterProfessorController.studentRep.count, 2)
 
         let dashBoard = DashboardTableViewController()
-        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
+        let student = dashBoard.fetchedResultsController?.fetchedObjects?[1]
 
         betterProfessorController.delete(student: student!)
         sleep(5)
-        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 1)
+        XCTAssertEqual(dashBoard.fetchedResultsController?.fetchedObjects?.count, 1)
     }
 
     func testUpdateStudent() {
@@ -76,9 +76,9 @@ class BestProfessorControllerTest: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(dashBoard.fetchedResultsController.fetchedObjects?.count, 2)
+        XCTAssertEqual(dashBoard.fetchedResultsController?.fetchedObjects?.count, 2)
 
-        let student = dashBoard.fetchedResultsController.fetchedObjects?[1]
+        let student = dashBoard.fetchedResultsController?.fetchedObjects?[1]
         betterProfessorController.updateStudent(student: student!, name: "Lydia Zhang", email: "Lydia")
 
         XCTAssertEqual(student?.name, "Lydia Zhang")

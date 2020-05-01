@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import BetterProfessor
-
+//Some of these test needs pre set up object in firebase, if you cannot open my firebase, plase make your own firebase inside the controller and create objects whenever needed
 class DashBoardTest: XCTestCase {
 
     func testSignUp() {
@@ -31,7 +31,7 @@ class DashBoardTest: XCTestCase {
         let professor = Professor(username: "Lambda", password: "12345")
 
         let expectation = self.expectation(description: "Waiting for Sign In")
-        login.signIn(with: professor) { error in
+        login.signIn(with: professor) { error,result  in
             if let error = error {
                 NSLog("Error when signing in: \(error)")
             }
@@ -49,7 +49,7 @@ class DashBoardTest: XCTestCase {
         //i previously made 2 students
         let numberOfRows = dash.tableView.numberOfRows(inSection: 0)
         XCTAssertEqual(numberOfRows, 2)
-        let baseName = dash.fetchedResultsController.fetchedObjects?[0].name
+        let baseName = dash.fetchedResultsController?.fetchedObjects?[0].name
         XCTAssertEqual(baseName, "112")
 
     }

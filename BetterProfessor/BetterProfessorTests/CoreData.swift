@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import BetterProfessor
+//Some of these test needs pre set up object in firebase, if you cannot open my firebase, plase make your own firebase inside the controller and create objects whenever needed
 class CoreData: XCTestCase {
 
     func testMakeProf() {
