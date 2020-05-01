@@ -25,7 +25,6 @@
 		27308BFC2457646C00CEE5B2 /* NewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFB2457646C00CEE5B2 /* NewStudentViewController.swift */; };
 		27308BFE2457649F00CEE5B2 /* EditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308BFD2457649F00CEE5B2 /* EditStudentInfoViewController.swift */; };
 		42120BCC0DC94506AA57CA37 /* Pods_BetterProfessorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533A1929D9C689F5BE6647A0 /* Pods_BetterProfessorTests.framework */; };
-		7EA0313BCD6AD22F4BE515EE /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		9AD85264F9BD8818D555815D /* Pods_BetterProfessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51636BB19B302A1A3D547F55 /* Pods_BetterProfessor.framework */; };
 		AE4EC840245A02F900CC88AD /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC83F245A02F900CC88AD /* CoreData.swift */; };
 		AE4EC84A245A088F00CC88AD /* BetterProfessorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EC849245A088F00CC88AD /* BetterProfessorUITests.swift */; };
@@ -119,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EA0313BCD6AD22F4BE515EE /* (null) in Frameworks */,
 				0703BF2B1CE8D950F680DCE3 /* Pods_BetterProfessor_BetterProfessorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
