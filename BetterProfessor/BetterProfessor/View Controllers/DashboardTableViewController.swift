@@ -16,17 +16,14 @@ class DashboardTableViewController: UITableViewController {
     @objc func alertAdd() {
         self.navigationController?.popViewController(animated: true)
         let alert = UIAlertController(title: "Success", message: "This student has been added to your list successfully", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-            //self.navigationController?.popViewController(animated: true)
-        })
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertAction)
         self.present(alert, animated: true)
     }
     @objc func alertChange() {
+        self.navigationController?.popViewController(animated: true)
         let alert = UIAlertController(title: "Success", message: "Change has been made on this student", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.navigationController?.popViewController(animated: true)
-        })
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertAction)
         self.present(alert, animated: true)
     }
@@ -35,6 +32,7 @@ class DashboardTableViewController: UITableViewController {
         super.viewDidLoad()
         betterProfessorController.fetchStudent()
         NotificationCenter.default.addObserver(self, selector: #selector(alertAdd), name: NSNotification.Name("StudentAdd"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(alertChange), name: NSNotification.Name("StudentChange"), object: nil)
     }
     var apiController = APIController()
     var betterProfessorController = BetterProfessorController()
