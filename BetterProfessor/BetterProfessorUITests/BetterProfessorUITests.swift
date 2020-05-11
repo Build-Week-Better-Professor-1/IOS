@@ -139,9 +139,8 @@ class BetterProfessorUITests: XCTestCase {
         studentName.typeText("lydia4")
 
         app.buttons["Save Student Info"].tap()
-        app.navigationBars["Student Info"].buttons["Students"].tap()
         sleep(3)
-        let newLydiaCell = app.tables.staticTexts["lydia4"]
+        let newLydiaCell = app.tables.staticTexts["llydia4"]
         XCTAssert(newLydiaCell.exists)
 
     }
@@ -157,7 +156,7 @@ class BetterProfessorUITests: XCTestCase {
         app.buttons.containing(.staticText, identifier: "Sign In").element.tap()
         sleep(10)
         
-        let baseCell = app.tables.staticTexts["114"]
+        let baseCell = app.tables.staticTexts["112"]
         baseCell.tap()
         sleep(2)
         
