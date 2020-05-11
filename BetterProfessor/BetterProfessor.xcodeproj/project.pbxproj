@@ -703,7 +703,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = PZP836B7DJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BetterProfessor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -769,6 +769,7 @@
 			baseConfigurationReference = 5A806947B3353D1A69233311 /* Pods-BetterProfessor-BetterProfessorUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PZP836B7DJ;
 				INFOPLIST_FILE = BetterProfessorUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -789,6 +790,7 @@
 			baseConfigurationReference = 792DBCD2045F89C4C9704CFA /* Pods-BetterProfessor-BetterProfessorUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PZP836B7DJ;
 				INFOPLIST_FILE = BetterProfessorUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

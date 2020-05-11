@@ -42,15 +42,23 @@ class DashBoardTest: XCTestCase {
         XCTAssertNotNil(login.bearer)
     }
 
-    func testCheckCell() {
+    func testBearer() {
 
-        let dash = DashboardTableViewController()
+        let login = APIController()
+        let professor = Professor(username: "Lambda", password: "12345")
 
-        //i previously made 2 students
-        let numberOfRows = dash.tableView.numberOfRows(inSection: 0)
-        XCTAssertEqual(numberOfRows, 2)
-        let baseName = dash.fetchedResultsController?.fetchedObjects?[0].name
-        XCTAssertEqual(baseName, "112")
+        let expectation = self.expectation(description: "Waiting for Sign In")
+        login.signIn(with: professor) { result, error  in
+            if let error = error {
+                NSLog("Error when signing in: \(error)")
+            }
+            XCTAssertNoThrow(error)
+
+            XCTAssertNotNil(result)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+        
 
     }
 

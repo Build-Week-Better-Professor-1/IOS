@@ -14,28 +14,21 @@ class TaskTest: XCTestCase {
 
     func testCreatingTask() {
         let taskController = TaskController()
-        let editVC = EditStudentInfoViewController()
-        taskController.createTask(title: "Task1", note: "1", dueDate: "today", student: "114")
-        XCTAssertNotNil(editVC.fetchedResultsController.fetchedObjects)
+
+        XCTAssertNoThrow(taskController.createTask(title: "Task1", note: "1", dueDate: "today", student: "114"))
     }
     func testUpdateTask() {
         let taskController = TaskController()
-        let editVC = EditStudentInfoViewController()
+        let taks = Task(title: "Task1", note: "1", dueDate: "today", student: "114")
         
-        let task = editVC.fetchedResultsController.fetchedObjects?[1]
-        taskController.updateTask(task: task!, title: "TestUpdate", note: "1", taskDueDate: "today")
-        
-        XCTAssertEqual(task!.title, "TestUpdate")
+        XCTAssertNoThrow(taskController.updateTask(task: taks, title: "11", note: "111", taskDueDate: "1111"))
     }
     
-    func test() {
+    func testDeleteTask() {
         let taskController = TaskController()
-        let editVC = EditStudentInfoViewController()
+
         
-        let task = editVC.fetchedResultsController.fetchedObjects?[1]
-        taskController.delete(task: task!)
-        
-        XCTAssertEqual(editVC.fetchedResultsController.fetchedObjects?.count, 1)
+        XCTAssertNoThrow(taskController.delete(task: Task(title: "11", note: "111", dueDate: "1111", student: "114")))
         
     }
 }
